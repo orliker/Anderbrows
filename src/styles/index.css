@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   ANDERBROWS — Premium foundations
+   ============================================================ */
+
+:root {
+  --gold-1: #C8A772;
+  --gold-2: #E5CDA1;
+  --gold-3: #B08A5B;
+  --cream: #FBF7F1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: #15100A;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold-1);
+  color: #15100A;
+}
+
+/* Scrollbar (subtle, premium) */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #F6EFE3; }
+::-webkit-scrollbar-thumb { background: #DBC9A8; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #C8A772; }
+
+/* ----------------------------------------------------------
+   Components / utilities
+   ---------------------------------------------------------- */
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] sm:text-xs font-medium uppercase tracking-widest2 text-mocha-700;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #B08A5B);
+  }
+
+  .eyebrow.center::before { display: none; }
+
+  .h-display {
+    @apply font-display font-light leading-[1.05] tracking-tight text-mocha-900;
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full
+           bg-mocha-900 text-cream-50 font-medium text-sm tracking-wide
+           transition-all duration-500 overflow-hidden
+           hover:shadow-soft hover:-translate-y-0.5;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg,
+      transparent 30%,
+      rgba(229, 205, 161, 0.4) 50%,
+      transparent 70%);
+    transform: translateX(-120%);
+    transition: transform 0.9s ease;
+  }
+
+  .btn-primary:hover::before {
+    transform: translateX(120%);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full
+           border border-mocha-900/20 bg-transparent text-mocha-900 font-medium text-sm tracking-wide
+           transition-all duration-300
+           hover:border-mocha-900/60 hover:bg-mocha-900/5 hover:-translate-y-0.5;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
+           border border-champagne-500/30 bg-cream-100/80 backdrop-blur
+           text-[11px] sm:text-xs uppercase tracking-widest2 text-mocha-700;
+  }
+
+  .gold-divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-champagne-500/60 to-transparent;
+  }
+
+  .card-premium {
+    @apply relative rounded-2xl border border-cream-200 bg-white/70 backdrop-blur
+           p-6 sm:p-8 transition-all duration-500
+           hover:border-champagne-500/40 hover:shadow-card hover:-translate-y-1;
+  }
+
+  .card-dark {
+    @apply relative rounded-2xl bg-mocha-900 text-cream-50 p-6 sm:p-8
+           border border-mocha-700/50 transition-all duration-500
+           hover:border-champagne-500/50 hover:-translate-y-1;
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #C8A772 0%, #E5CDA1 50%, #B08A5B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center,
+      transparent 50%,
+      rgba(38, 25, 15, 0.25) 100%);
+    pointer-events: none;
+  }
+
+  /* Decorative thin line that gets drawn-in */
+  .draw-line {
+    transform-origin: left center;
+    transform: scaleX(0);
+  }
+
+  /* Section reveal: items start hidden, animated in via Anime.js */
+  .reveal-init {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+/* ----------------------------------------------------------
+   Decorative SVG / patterns
+   ---------------------------------------------------------- */
+.bg-grain {
+  background-image:
+    radial-gradient(rgba(176, 138, 91, 0.10) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-noise {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(176, 138, 91, 0.04) 0px,
+      rgba(176, 138, 91, 0.04) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gold-text { animation: none; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Hide scrollbar utility for horizontal-scroll tab strips */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Mobile: prevent body horizontal overflow as a safety net */
+html, body { overflow-x: clip; }
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+}
