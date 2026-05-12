@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ============================================================
-   ANDERBROWS — Premium foundations
+   ANDERBROWS ACADEMY — Premium Beauty Landing
    ============================================================ */
 
 :root {
@@ -16,6 +16,7 @@
   --deep-brown: #2A1810;
   --warm-beige: #EADBC8;
   --warm-cream: #F6ECDD;
+  --ivory: #F3EEE6;
 }
 
 html {
@@ -23,26 +24,25 @@ html {
 }
 
 body {
-  background-color: var(--warm-beige);
-  color: var(--rich-black);
+  background-color: #1A100B;
+  color: var(--warm-cream);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-/* Selection styling */
 ::selection {
   background: var(--terracotta);
   color: #FFF;
 }
 
-/* Scrollbar (subtle, premium) */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--warm-beige); }
-::-webkit-scrollbar-thumb { background: var(--terracotta-soft); border-radius: 999px; }
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #1A100B; }
+::-webkit-scrollbar-thumb { background: var(--terracotta-soft); border-radius: 999px; border: 2px solid #1A100B; }
 ::-webkit-scrollbar-thumb:hover { background: var(--terracotta); }
 
 /* ----------------------------------------------------------
-   Components / utilities
+   Components
    ---------------------------------------------------------- */
 
 @layer components {
@@ -50,106 +50,131 @@ body {
     @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-12;
   }
 
+  /* --- EYEBROW --- */
   .eyebrow {
     @apply inline-flex items-center gap-3 text-[11px] sm:text-xs font-bold uppercase tracking-widest2 text-terracotta;
   }
-
   .eyebrow::before {
     content: '';
     width: 28px;
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--terracotta));
   }
-
   .eyebrow.center::before { display: none; }
 
+  /* --- DISPLAY HEADING --- */
   .h-display {
-    @apply font-display font-medium leading-[1.05] tracking-tight text-rich-black;
+    @apply font-display font-medium leading-[1.05] tracking-tight;
   }
 
+  /* --- BTN PRIMARY (terracotta) --- */
   .btn-primary {
     @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full
            bg-terracotta text-white font-bold text-sm tracking-wide
-           transition-all duration-500 overflow-hidden shadow-lg
-           hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#B9552A];
+           transition-all duration-300 overflow-hidden shadow-lg
+           hover:shadow-2xl hover:-translate-y-0.5;
+    /* Hover darkens to burnt */
   }
-
+  .btn-primary:hover {
+    background-color: #B9552A;
+  }
+  /* Shine sweep on hover */
   .btn-primary::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(120deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.25) 50%,
-      transparent 70%);
-    transform: translateX(-120%);
-    transition: transform 0.9s ease;
+    background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.20) 50%, transparent 70%);
+    transform: translateX(-130%);
+    transition: transform 0.8s ease;
   }
-
   .btn-primary:hover::before {
-    transform: translateX(120%);
+    transform: translateX(130%);
+  }
+  /* Active press */
+  .btn-primary:active {
+    transform: scale(0.97);
+    box-shadow: none;
   }
 
+  /* --- BTN SECONDARY (outline warm) --- */
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full
-           border-2 border-deep-brown text-deep-brown font-bold text-sm tracking-wide
-           transition-all duration-300
-           hover:bg-deep-brown hover:text-white hover:-translate-y-0.5;
+           border-2 text-sm font-bold tracking-wide
+           transition-all duration-300;
+    border-color: rgba(234, 219, 200, 0.35);
+    color: var(--warm-beige);
+  }
+  .btn-secondary:hover {
+    background: rgba(234, 219, 200, 0.08);
+    border-color: rgba(234, 219, 200, 0.55);
+    transform: translateY(-2px);
+  }
+  .btn-secondary:active {
+    transform: scale(0.97);
   }
 
+  /* --- BADGE PILL --- */
   .badge-pill {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
-           border border-terracotta/30 bg-white/60 backdrop-blur-md
-           text-[11px] sm:text-xs font-bold uppercase tracking-widest2 text-deep-brown shadow-sm;
+           border text-[11px] sm:text-xs font-bold uppercase tracking-widest2 shadow-sm;
+    border-color: rgba(196, 95, 50, 0.40);
+    background: rgba(26, 16, 11, 0.80);
+    backdrop-filter: blur(12px);
+    color: var(--warm-beige);
   }
 
+  /* --- DIVIDERS --- */
   .gold-divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-warm/60 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-warm/50 to-transparent;
   }
 
+  /* --- CARDS --- */
   .card-premium {
-    @apply relative rounded-3xl border border-white/40 bg-warm-cream/90 backdrop-blur-md
-           p-8 sm:p-10 transition-all duration-500 shadow-soft
-           hover:border-terracotta/30 hover:shadow-card hover:-translate-y-1;
+    @apply relative rounded-3xl border p-8 sm:p-10 transition-all duration-500 shadow-soft
+           hover:shadow-card hover:-translate-y-1;
+    border-color: rgba(234, 219, 200, 0.55);
+    background: #FFFFFF;
   }
 
   .card-dark {
-    @apply relative rounded-3xl bg-chocolate text-warm-cream p-8 sm:p-10
-           border border-terracotta/20 transition-all duration-500 shadow-xl
-           hover:border-terracotta/50 hover:-translate-y-1;
+    @apply relative rounded-3xl text-warm-cream p-8 sm:p-10
+           border transition-all duration-500 shadow-xl
+           hover:-translate-y-1;
+    background: #1A100B;
+    border-color: rgba(196, 95, 50, 0.25);
+  }
+  .card-dark:hover {
+    border-color: rgba(196, 95, 50, 0.55);
   }
 
+  /* --- GOLD / SHIMMER TEXT --- */
   .gold-text {
-    background: linear-gradient(135deg, #B9552A 0%, #C89A4B 50%, #B9552A 100%);
+    background: linear-gradient(135deg, #C89A4B 0%, #E5CDA1 45%, #B08A5B 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     background-size: 200% 200%;
-    animation: shimmer 4s ease-in-out infinite;
+    animation: shimmer 4.5s ease-in-out infinite;
   }
 
-  .terracotta-text {
-    @apply text-terracotta font-semibold;
-  }
+  .terracotta-text { @apply text-terracotta font-semibold; }
 
-
+  /* --- VIGNETTE --- */
   .vignette::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at center,
-      transparent 50%,
-      rgba(38, 25, 15, 0.25) 100%);
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(18,13,9,0.30) 100%);
     pointer-events: none;
   }
 
-  /* Decorative thin line that gets drawn-in */
+  /* --- DRAW LINE --- */
   .draw-line {
     transform-origin: left center;
     transform: scaleX(0);
   }
 
-  /* Section reveal: items start hidden, animated in via Anime.js */
+  /* --- SCROLL REVEAL --- */
   .reveal-init {
     opacity: 0;
     transform: translateY(28px);
@@ -157,26 +182,54 @@ body {
 }
 
 /* ----------------------------------------------------------
-   Decorative SVG / patterns
+   Decorative patterns
    ---------------------------------------------------------- */
 .bg-grain {
-  background-image:
-    radial-gradient(rgba(176, 138, 91, 0.10) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(200,154,75,0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .bg-noise {
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(176, 138, 91, 0.04) 0px,
-      rgba(176, 138, 91, 0.04) 1px,
-      transparent 1px,
-      transparent 6px
-    );
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(200,154,75,0.04) 0px,
+    rgba(200,154,75,0.04) 1px,
+    transparent 1px,
+    transparent 6px
+  );
 }
 
-/* Reduced motion */
+/* ----------------------------------------------------------
+   Premium section transitions — gradient blends between sections
+   ---------------------------------------------------------- */
+/* Sections "breathe" into each other with a 1px gradient bleed */
+section + section {
+  position: relative;
+}
+
+/* ----------------------------------------------------------
+   Global microinteraction polish
+   ---------------------------------------------------------- */
+
+/* All interactive cards get a cursor pointer by default */
+article[class*="hover:"] { cursor: default; }
+button { cursor: pointer; }
+
+/* Smooth image scaling on hover */
+img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Focus rings — accessible + premium */
+:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ----------------------------------------------------------
+   Reduced motion
+   ---------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .gold-text { animation: none; }
   *, *::before, *::after {
@@ -185,12 +238,38 @@ body {
   }
 }
 
-/* Hide scrollbar utility for horizontal-scroll tab strips */
+/* ----------------------------------------------------------
+   Scrollbar hide utility
+   ---------------------------------------------------------- */
 .scrollbar-none::-webkit-scrollbar { display: none; }
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Mobile: prevent body horizontal overflow as a safety net */
+/* ----------------------------------------------------------
+   Mobile safety
+   ---------------------------------------------------------- */
 html, body { overflow-x: clip; }
+
 @media (max-width: 640px) {
   html { font-size: 15px; }
+
+  /* Mobile: reduce animation translate so elements don't "jump" */
+  .reveal-init {
+    transform: translateY(16px);
+  }
+
+  /* Mobile: CTA buttons always full readable */
+  .btn-primary, .btn-secondary {
+    min-height: 52px;
+  }
+
+  /* Prevent floating decorative elements from causing overflow */
+  .hero-float { max-width: 100%; }
+}
+
+@media (max-width: 390px) {
+  /* Very small screens — tighten spacing */
+  .container-x {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

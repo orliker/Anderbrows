@@ -43,19 +43,20 @@ const iconMap = {
 export default function Included() {
   const ref = useReveal({ delayBetween: 60 })
   return (
-    <section id="incluido" ref={ref} className="relative py-20 sm:py-28 bg-deep-brown text-warm-cream">
+    /* Sección oscura castanho — texto claro */
+    <section id="incluido" ref={ref} className="relative py-20 sm:py-28" style={{ background: '#2A1810' }}>
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
-      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-chocolate/40 blur-[120px] pointer-events-none" />
+      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-terracotta/8 blur-[130px] pointer-events-none" />
 
       <div className="container-x relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="reveal-init">
-            <span className="eyebrow center justify-center text-terracotta-soft">O que está incluído</span>
+            <span className="eyebrow center justify-center text-terracotta">O que está incluído</span>
           </div>
-          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-white">
-            Uma estrutura completa para o seu <em className="not-italic italic gold-text">sucesso</em>.
+          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-warm-cream">
+            Uma estrutura completa para o seu <em className="not-italic italic gold-text">percurso</em>.
           </h2>
-          <p className="reveal-init mt-6 text-warm-beige/80 text-base sm:text-lg leading-relaxed font-medium">
+          <p className="reveal-init mt-6 text-warm-beige/70 text-base sm:text-lg leading-relaxed font-medium">
             Mais do que técnica, entregamos as ferramentas necessárias para iniciar o seu percurso profissional com total segurança.
           </p>
         </div>
@@ -64,13 +65,14 @@ export default function Included() {
           {INCLUDED.map((item, i) => (
             <article
               key={i}
-              className="reveal-init group relative p-8 rounded-[32px] border border-terracotta/20 bg-chocolate/50 backdrop-blur-sm hover:border-terracotta/50 hover:bg-chocolate transition-all duration-500 hover:-translate-y-1 shadow-lg"
+              className="reveal-init group relative p-8 rounded-[32px] border border-terracotta/20 hover:border-terracotta/50 transition-all duration-500 hover:-translate-y-1 shadow-lg"
+              style={{ background: '#1A100B' }}
             >
-              <div className="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracotta-soft flex items-center justify-center mb-8 group-hover:bg-terracotta group-hover:text-white transition-all duration-500 group-hover:scale-110">
+              <div className="w-14 h-14 rounded-2xl bg-terracotta/10 text-terracotta flex items-center justify-center mb-8 group-hover:bg-terracotta group-hover:text-white transition-all duration-500 group-hover:scale-110 border border-terracotta/25">
                 <span className="w-6 h-6 block">{iconMap[item.icon]}</span>
               </div>
-              <h3 className="font-display text-2xl text-white leading-tight">{item.t}</h3>
-              <p className="mt-4 text-sm text-warm-beige/70 leading-relaxed font-medium">{item.d}</p>
+              <h3 className="font-display text-2xl text-warm-cream leading-tight">{item.t}</h3>
+              <p className="mt-4 text-sm text-warm-beige/65 leading-relaxed font-medium">{item.d}</p>
             </article>
           ))}
         </div>

@@ -2,21 +2,14 @@ import { useEffect, useRef } from 'react'
 import { animate, stagger } from 'animejs'
 
 /**
- * Reveal children of a section when it enters the viewport.
+ * Reveal children when section enters viewport.
  * Targets elements with `.reveal-init` inside the ref.
- *
- * options:
- *  - selector: querySelector for items (default ".reveal-init")
- *  - delayBetween: ms between items (default 90)
- *  - duration: per-item duration (default 900)
- *  - threshold: IntersectionObserver threshold (default 0.18)
- *  - y: starting translateY (default 28)
  */
 export function useReveal({
   selector = '.reveal-init',
   delayBetween = 90,
   duration = 900,
-  threshold = 0.18,
+  threshold = 0.12,
   y = 28,
 } = {}) {
   const ref = useRef(null)
@@ -26,6 +19,12 @@ export function useReveal({
     if (!root) return
     const items = root.querySelectorAll(selector)
     if (!items.length) return
+
+    // Pre-hide items immediately so no flash before animation
+    items.forEach(el => {
+      el.style.opacity = '0'
+      el.style.transform = `translateY(${y}px)`
+    })
 
     let played = false
     const io = new IntersectionObserver(
@@ -81,5 +80,26 @@ export function useCountUp(target, { duration = 1800, easing = 'easeOutExpo' } =
     return () => io.disconnect()
   }, [target, duration, easing])
 
+  return ref
+}
+
+/**
+ * Float animation — continuous gentle up/down movement.
+ * Pass ref and it will start floating.
+ */
+export function useFloat(amplitude = 8, duration = 4000) {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const ctrl = animate(el, {
+      translateY: [0, -amplitude],
+      duration,
+      easing: 'easeInOutSine',
+      direction: 'alternate',
+      loop: true,
+    })
+    return () => ctrl.pause?.()
+  }, [amplitude, duration])
   return ref
 }
