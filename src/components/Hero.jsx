@@ -9,15 +9,17 @@ function FloatChip({ children, className, delay = 0 }) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const ctrl = animate(el, {
-      translateY: [0, -7],
-      duration: 3600 + delay * 200,
-      easing: 'easeInOutSine',
-      direction: 'alternate',
-      loop: true,
-      delay,
-    })
-    return () => ctrl.pause?.()
+    try {
+      const ctrl = animate(el, {
+        translateY: [0, -7],
+        duration: 3600 + delay * 200,
+        easing: 'easeInOutSine',
+        direction: 'alternate',
+        loop: true,
+        delay,
+      })
+      return () => ctrl.pause?.()
+    } catch (_) { /* decorative only */ }
   }, [delay])
   return <div ref={ref} className={className}>{children}</div>
 }
@@ -29,69 +31,94 @@ export default function Hero() {
     const root = heroRef.current
     if (!root) return
 
-    const tl = createTimeline({ easing: 'easeOutExpo' })
+    const heroEls = root.querySelectorAll('.hero-badge, .hero-title-line, .hero-sub, .hero-cta, .hero-meta, .hero-visual')
 
-    tl.add(root.querySelectorAll('.hero-badge'), {
-      opacity: [0, 1],
-      translateY: [12, 0],
-      duration: 700,
-    })
-      .add(root.querySelectorAll('.hero-title-line'), {
-        opacity: [0, 1],
-        translateY: [50, 0],
-        delay: stagger(120),
-        duration: 1100,
-      }, '-=400')
-      .add(root.querySelectorAll('.hero-sub'), {
-        opacity: [0, 1],
-        translateY: [22, 0],
-        delay: stagger(100),
-        duration: 850,
-      }, '-=600')
-      .add(root.querySelectorAll('.hero-cta'), {
-        opacity: [0, 1],
-        translateY: [18, 0],
-        scale: [0.96, 1],
-        delay: stagger(100),
-        duration: 700,
-      }, '-=500')
-      .add(root.querySelectorAll('.hero-meta'), {
+    function revealHero() {
+      heroEls.forEach(el => {
+        el.style.opacity = '1'
+        el.style.transform = 'none'
+      })
+    }
+
+    // Pre-hide for animation only if we can animate
+    heroEls.forEach(el => { el.style.opacity = '0' })
+
+    // Safety: if animation never completes, reveal after 2s
+    const safetyTimer = setTimeout(revealHero, 2000)
+
+    try {
+      const tl = createTimeline({ easing: 'easeOutExpo' })
+
+      tl.add(root.querySelectorAll('.hero-badge'), {
         opacity: [0, 1],
         translateY: [12, 0],
-        delay: stagger(80),
-        duration: 600,
-      }, '-=400')
-      .add(root.querySelector('.hero-visual'), {
-        opacity: [0, 1],
-        translateX: [50, 0],
-        scale: [0.94, 1],
-        duration: 1300,
-      }, 200)
+        duration: 700,
+      })
+        .add(root.querySelectorAll('.hero-title-line'), {
+          opacity: [0, 1],
+          translateY: [50, 0],
+          delay: stagger(120),
+          duration: 1100,
+        }, '-=400')
+        .add(root.querySelectorAll('.hero-sub'), {
+          opacity: [0, 1],
+          translateY: [22, 0],
+          delay: stagger(100),
+          duration: 850,
+        }, '-=600')
+        .add(root.querySelectorAll('.hero-cta'), {
+          opacity: [0, 1],
+          translateY: [18, 0],
+          scale: [0.96, 1],
+          delay: stagger(100),
+          duration: 700,
+        }, '-=500')
+        .add(root.querySelectorAll('.hero-meta'), {
+          opacity: [0, 1],
+          translateY: [12, 0],
+          delay: stagger(80),
+          duration: 600,
+        }, '-=400')
+        .add(root.querySelector('.hero-visual'), {
+          opacity: [0, 1],
+          translateX: [50, 0],
+          scale: [0.94, 1],
+          duration: 1300,
+        }, 200)
 
-    // Draw decorative lines
-    const lines = root.querySelectorAll('.hero-line')
-    lines.forEach((l, i) => {
-      try {
-        const drawable = createDrawable(l, 0, 0)
-        animate(drawable, {
-          draw: '0 1',
-          duration: 1600,
+      tl.then(() => clearTimeout(safetyTimer))
+
+      // Draw decorative lines
+      const lines = root.querySelectorAll('.hero-line')
+      lines.forEach((l, i) => {
+        try {
+          const drawable = createDrawable(l, 0, 0)
+          animate(drawable, {
+            draw: '0 1',
+            duration: 1600,
+            easing: 'easeInOutSine',
+            delay: 700 + i * 200,
+          })
+        } catch (_) { /* ignore */ }
+      })
+
+      // Float the entire visual
+      const heroFloat = root.querySelector('.hero-float')
+      if (heroFloat) {
+        animate(heroFloat, {
+          translateY: [0, -10],
+          duration: 4200,
           easing: 'easeInOutSine',
-          delay: 700 + i * 200,
+          direction: 'alternate',
+          loop: true,
         })
-      } catch (_) { /* ignore if element not drawable */ }
-    })
+      }
 
-    // Float the entire visual
-    animate(root.querySelector('.hero-float'), {
-      translateY: [0, -10],
-      duration: 4200,
-      easing: 'easeInOutSine',
-      direction: 'alternate',
-      loop: true,
-    })
-
-    return () => tl.pause()
+      return () => { clearTimeout(safetyTimer); tl.pause() }
+    } catch (_) {
+      clearTimeout(safetyTimer)
+      revealHero()
+    }
   }, [])
 
   return (
@@ -130,7 +157,7 @@ export default function Hero() {
           <div className="lg:col-span-7">
 
             {/* Badge */}
-            <div className="hero-badge inline-flex" style={{ opacity: 0 }}>
+            <div className="hero-badge inline-flex">
               <span className="badge-pill">
                 <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
                 Formação Profissional · {COURSE.date}
@@ -142,10 +169,10 @@ export default function Hero() {
               className="h-display mt-7"
               style={{ fontSize: 'clamp(2.5rem, 7vw, 5.25rem)', lineHeight: 1 }}
             >
-              <span className="hero-title-line block font-bold text-warm-cream" style={{ opacity: 0 }}>
+              <span className="hero-title-line block font-bold text-warm-cream">
                 Design de
               </span>
-              <span className="hero-title-line block font-display italic text-terracotta-soft" style={{ opacity: 0 }}>
+              <span className="hero-title-line block font-display italic text-terracotta-soft">
                 Sobrancelhas
               </span>
             </h1>
@@ -153,14 +180,12 @@ export default function Hero() {
             {/* Subtitle */}
             <p
               className="hero-sub mt-7 max-w-xl text-lg sm:text-xl text-warm-beige leading-relaxed font-bold"
-              style={{ opacity: 0 }}
             >
               Uma formação para aprender com técnica, segurança e sensibilidade estética. ♡
             </p>
 
             <p
               className="hero-sub mt-4 max-w-lg text-base text-warm-beige/65 leading-relaxed font-medium"
-              style={{ opacity: 0 }}
             >
               {COURSE.description}
             </p>
@@ -172,7 +197,6 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-cta btn-primary shadow-2xl group"
-                style={{ opacity: 0 }}
               >
                 Quero inscrever-me ✨
                 <svg viewBox="0 0 24 24" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -182,7 +206,6 @@ export default function Hero() {
               <a
                 href="#programa"
                 className="hero-cta btn-secondary group"
-                style={{ opacity: 0 }}
               >
                 Ver programa
                 <svg viewBox="0 0 24 24" className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -201,7 +224,7 @@ export default function Hero() {
                 { k: 'Especialização', v: 'Henna & Coloração' },
                 { k: 'Método', v: 'Anderbrows ✦' },
               ].map((m, i) => (
-                <div key={i} className="hero-meta" style={{ opacity: 0 }}>
+                <div key={i} className="hero-meta">
                   <div className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
                     {m.k}
                   </div>
@@ -214,7 +237,6 @@ export default function Hero() {
           {/* RIGHT — Visual */}
           <div
             className="lg:col-span-5 hero-visual relative"
-            style={{ opacity: 0 }}
           >
             <div className="hero-float relative">
               <HeroVisual />

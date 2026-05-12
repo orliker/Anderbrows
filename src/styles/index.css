@@ -174,10 +174,20 @@ body {
     transform: scaleX(0);
   }
 
-  /* --- SCROLL REVEAL --- */
+  /* --- SCROLL REVEAL ---
+   * IMPORTANT: por defecto visible. JS añade la clase .js-ready al <html>
+   * y solo entonces los elementos arrancan ocultos.
+   * Si JS falla / WhatsApp browser bloquea, el contenido queda visible.
+   */
   .reveal-init {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Solo ocultar cuando JS está activo y ha preparado la animación */
+  .js-anims .reveal-init {
     opacity: 0;
-    transform: translateY(28px);
+    transform: translateY(24px);
   }
 }
 
