@@ -5,43 +5,45 @@ export default function Authority() {
   const ref = useReveal({ delayBetween: 110 })
 
   return (
-    <section id="sobre" ref={ref} className="relative py-20 sm:py-28">
-      <div className="absolute inset-0 bg-cream-100/40 pointer-events-none" />
+    <section id="sobre" ref={ref} className="relative py-20 sm:py-28 bg-warm-cream">
+      <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
+      <div className="absolute -left-40 top-0 w-[500px] h-[500px] bg-terracotta/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="max-w-3xl">
-          <div className="reveal-init">
-            <span className="eyebrow">Anderbrows Beauty &amp; Academy</span>
+        <div className="grid lg:grid-cols-12 gap-10 items-end mb-16">
+          <div className="lg:col-span-7">
+            <div className="reveal-init">
+              <span className="eyebrow text-terracotta">Anderbrows Academy</span>
+            </div>
+            <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-rich-black">
+              Construída sobre a <em className="not-italic italic gold-text">excelência</em> e o detalhe.
+            </h2>
           </div>
-          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px]">
-            Uma marca construída sobre cinco <em className="font-display italic gold-text not-italic">pilares</em>.
-          </h2>
-          <p className="reveal-init mt-6 text-mocha-700 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Mais do que uma formação, oferecemos um caminho completo: técnica de excelência,
-            ética profissional e acompanhamento que continua muito depois do dia da formação.
-          </p>
+          <div className="lg:col-span-5">
+            <p className="reveal-init text-mocha-800/80 text-base sm:text-lg leading-relaxed font-medium">
+              Mais do que ensinar técnica, preparamos profissionais com sensibilidade, segurança e ética. Cada detalhe importa: do primeiro mapeamento ao apoio que continua pós-formação. ♡
+            </p>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-5 mt-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {PILLARS.map((p, i) => (
             <article
               key={p.label}
-              className="reveal-init card-premium group"
-              style={{ animationDelay: `${i * 80}ms` }}
+              className="reveal-init relative p-8 rounded-[32px] border border-warm-beige bg-off-white/80 backdrop-blur transition-all duration-500 hover:border-terracotta/40 hover:shadow-card hover:-translate-y-1 hover:bg-white group"
             >
-              <div className="flex items-center justify-between mb-6">
-                <span className="text-[10px] font-medium uppercase tracking-widest2 text-champagne-600">
+              <div className="flex items-center justify-between mb-8">
+                <span className="text-[10px] font-bold uppercase tracking-widest2 text-terracotta bg-terracotta/10 px-3 py-1 rounded-full">
                   0{i + 1}
                 </span>
-                <span className="w-8 h-px bg-gradient-to-r from-champagne-500 to-transparent" />
+                <div className="w-8 h-px bg-warm-beige group-hover:bg-terracotta group-hover:w-12 transition-all duration-500" />
               </div>
-              <h3 className="font-display text-xl sm:text-2xl text-mocha-900 leading-tight">
+              <h3 className="font-display text-2xl text-deep-brown leading-tight">
                 {p.label}
               </h3>
-              <p className="mt-3 text-sm text-mocha-700 leading-relaxed">
+              <p className="mt-4 text-sm text-mocha-800/70 leading-relaxed">
                 {p.text}
               </p>
-              <div className="mt-6 h-px w-full bg-cream-200 group-hover:bg-champagne-500/40 transition-colors duration-500" />
             </article>
           ))}
         </div>

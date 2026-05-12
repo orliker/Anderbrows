@@ -2,7 +2,6 @@ import { AUDIENCE } from '../constants/content.js'
 import { useReveal } from '../hooks/useReveal.js'
 
 const icons = [
-  // Iniciantes
   (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" key="i0">
       <circle cx="12" cy="8" r="3.2" />
@@ -11,7 +10,7 @@ const icons = [
   ),
   (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" key="i1">
-      <path d="M3 10h18M5 10v10h14V10M9 10V6a3 3 0 0 1 6 0v4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" strokeLinejoin="round" />
     </svg>
   ),
   (
@@ -22,7 +21,7 @@ const icons = [
   ),
   (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" key="i3">
-      <path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.6L12 15.7 7.1 18.3l.9-5.6-4-3.9 5.5-.8z" strokeLinejoin="round" />
+      <path d="M12 3v18M3 12h18M12 3l-4 4M12 3l4 4M12 21l-4-4M12 21l4-4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ),
 ]
@@ -31,32 +30,31 @@ export default function Audience() {
   const ref = useReveal({ delayBetween: 100 })
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 bg-mocha-900 text-cream-50 overflow-hidden">
-      <div className="absolute inset-0 bg-noise opacity-40 pointer-events-none" />
-      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-champagne-500/10 blur-3xl pointer-events-none" />
+    <section ref={ref} className="relative py-20 sm:py-28 bg-deep-brown text-off-white overflow-hidden">
+      <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-terracotta-soft/10 blur-[120px] pointer-events-none" />
 
       <div className="container-x relative">
         <div className="max-w-3xl">
           <div className="reveal-init">
-            <span className="eyebrow text-cream-200/80">Para quem é esta formação</span>
+            <span className="eyebrow text-terracotta-soft">Para quem é esta formação</span>
           </div>
-          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-cream-50">
-            Pensada para quem quer <em className="not-italic italic gold-text">levar a sério</em>{' '}
-            a arte do design de sobrancelhas.
+          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-warm-cream leading-tight">
+            Pensada para mulheres que querem <em className="not-italic italic gold-text">liderar</em> o seu próprio negócio.
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
           {AUDIENCE.map((a, i) => (
             <article
               key={a.title}
-              className="reveal-init relative rounded-2xl border border-cream-50/10 bg-mocha-800/40 backdrop-blur p-7 transition-all duration-500 hover:border-champagne-500/40 hover:bg-mocha-800/60 hover:-translate-y-1 group"
+              className="reveal-init relative rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-sm p-8 transition-all duration-500 hover:border-terracotta/40 hover:bg-white/[0.08] hover:-translate-y-1 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-champagne-500/15 text-champagne-400 flex items-center justify-center mb-6 group-hover:bg-champagne-500/25 transition-colors">
-                <span className="w-6 h-6 block">{icons[i]}</span>
+              <div className="w-14 h-14 rounded-2xl bg-terracotta/15 text-terracotta-soft flex items-center justify-center mb-8 group-hover:bg-terracotta/30 transition-all duration-500 group-hover:scale-110">
+                <span className="w-7 h-7 block">{icons[i]}</span>
               </div>
-              <h3 className="font-display text-xl text-cream-50 leading-tight">{a.title}</h3>
-              <p className="mt-3 text-sm text-cream-200/70 leading-relaxed">{a.text}</p>
+              <h3 className="font-display text-2xl text-warm-cream leading-tight">{a.title}</h3>
+              <p className="mt-4 text-sm text-warm-beige/70 leading-relaxed">{a.text}</p>
             </article>
           ))}
         </div>

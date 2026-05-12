@@ -3,7 +3,7 @@
 export const BRAND = {
   name: 'Anderbrows',
   fullName: 'Anderbrows Beauty and Academy',
-  city: 'Porto',
+  city: 'Local comunicado após confirmação da vaga',
   year: '2026',
 }
 
@@ -14,21 +14,22 @@ export const CONTACT = {
   website: 'www.anderbrows.com',
   instagram: '@anderbrows',
   instagramUrl: 'https://instagram.com/anderbrows',
-  address: 'Rua da Boavista 844 / 2º andar — Sala 2.1, Porto',
 }
 
 export const WHATSAPP_URL =
   'https://wa.me/351938106435?text=' +
   encodeURIComponent(
-    'Olá, gostaria de saber mais sobre a formação Design de Sobrancelhas Anderbrows.'
+    'Olá, gostaria de saber mais sobre a formação de Design de Sobrancelhas com aplicação de henna e coloração.'
   )
 
 export const COURSE = {
-  title: 'Design de Sobrancelhas + Aplicação de Henna e Coloração',
-  subtitle: 'Formação Profissional · 2026',
-  date: '25 de Maio',
-  city: 'Porto',
-  price: 490,
+  title: 'Design de Sobrancelhas',
+  subtitle: 'Formação profissional intensiva em aplicação de henna e coloração.',
+  description: 'Aprenda a transformar sobrancelhas com precisão técnica, sensibilidade estética e o método Anderbrows — do mapeamento ao resultado final.',
+  date: '13 de julho',
+  city: 'Local exclusivo',
+  priceBase: 490,
+  priceWithKit: 540,
   inscription: 100,
 }
 
@@ -38,11 +39,7 @@ export const PILLARS = [
     text: 'Mais de 10 anos a formar profissionais de excelência em Portugal.',
   },
   {
-    label: 'Seriedade',
-    text: 'Compromisso real com cada aluna, do primeiro contacto ao apoio vitalício.',
-  },
-  {
-    label: 'Conhecimento',
+    label: 'Autoridade',
     text: 'Método Anderbrows — visagismo, técnica e estética em equilíbrio.',
   },
   {
@@ -51,7 +48,7 @@ export const PILLARS = [
   },
   {
     label: 'Apoio Pós-Formação',
-    text: 'Acompanhamento vitalício via WhatsApp e comunidade exclusiva.',
+    text: 'Acompanhamento pós-formação e acesso a oportunidades e conteúdos da Anderbrows.',
   },
 ]
 
@@ -65,104 +62,151 @@ export const AUDIENCE = [
     text: 'Atualize a sua técnica com o método Anderbrows e diferencie-se.',
   },
   {
-    title: 'Quem quer começar uma carreira',
-    text: 'Liberdade financeira e flexibilidade num mercado em crescimento.',
+    title: 'Carreira',
+    text: 'Potencial de crescimento profissional num mercado em constante expansão.',
   },
   {
-    title: 'Futuras micropigmentadoras',
-    text: 'Esta formação é a base e pré-requisito para a área de micropigmentação.',
+    title: 'Bases Técnicas',
+    text: 'Esta formação é a base essencial para quem deseja entrar no mundo da micropigmentação.',
   },
 ]
 
 export const CURRICULUM = [
-  { n: '01', t: 'Introdução ao Design de Sobrancelhas' },
-  { n: '02', t: 'Visagismo aplicado às sobrancelhas' },
-  { n: '03', t: 'Pele e tipos de pele' },
-  { n: '04', t: 'Higienização e biossegurança' },
-  { n: '05', t: 'Ética profissional' },
-  { n: '06', t: 'Atendimento ao cliente' },
-  { n: '07', t: 'Materiais utilizados' },
-  { n: '08', t: 'Design técnico — Método Anderbrows' },
-  { n: '09', t: 'Marcações com linha e paquímetro' },
-  { n: '10', t: 'Design feminino' },
-  { n: '11', t: 'Design masculino' },
-  { n: '12', t: 'Design em crianças e adolescentes' },
-  { n: '13', t: 'Coloração dos pelos' },
-  { n: '14', t: 'Modelagem com linha' },
-  { n: '15', t: 'Simetria das sobrancelhas' },
-  { n: '16', t: 'Formatos e elementos do rosto' },
-  { n: '17', t: 'Preparação da pele e remoção' },
-  { n: '18', t: 'Aplicação de henna' },
+  {
+    title: 'Fundamentos',
+    items: [
+      'Introdução ao design de sobrancelhas',
+      'Visagismo aplicado às sobrancelhas',
+      'Pele e tipos de pele',
+      'Higienização e biossegurança',
+    ]
+  },
+  {
+    title: 'Técnica Anderbrows',
+    items: [
+      'Ética profissional',
+      'Atendimento ao cliente',
+      'Materiais utilizados',
+      'Design técnico — Método Anderbrows',
+    ]
+  },
+  {
+    title: 'Design e Simetria',
+    items: [
+      'Marcações com linha e paquímetro',
+      'Design feminino',
+      'Design masculino',
+      'Simetria das sobrancelhas',
+    ]
+  },
+  {
+    title: 'Aplicação de Henna e Coloração',
+    items: [
+      'Preparação da pele',
+      'Aplicação de henna e coloração',
+    ]
+  }
 ]
 
 export const TRANSFORMATION = {
-  before: [
-    'Insegurança ao realizar o procedimento',
-    'Falta de técnica e de método',
-    'Dificuldade em iniciar uma carreira',
-    'Receio de não atrair clientes',
-  ],
-  after: [
-    'Domínio do método Anderbrows',
-    'Confiança e técnica em cada cliente',
-    'Atendimento profissional e fidelizado',
-    'Liberdade para faturar e crescer',
-  ],
+  title: 'Resultados que mostram a evolução da técnica',
+  subtitle: 'Um espaço pensado para apresentar transformações reais, desde o desenho inicial até ao resultado final com aplicação de henna e coloração.',
+  items: [
+    {
+      beforeText: 'Antes da técnica',
+      afterText: 'Depois da aplicação de henna e coloração',
+      imgBefore: '/images/anderbrows/before-after-01-a.jpg',
+      imgAfter: '/images/anderbrows/before-after-01-b.jpg',
+    },
+    {
+      beforeText: 'Antes da técnica',
+      afterText: 'Depois da aplicação de henna e coloração',
+      imgBefore: '/images/anderbrows/before-after-02-a.jpg',
+      imgAfter: '/images/anderbrows/before-after-02-b.jpg',
+    }
+  ]
 }
 
+export const TESTIMONIALS = [
+  {
+    name: 'Nome da formanda',
+    text: 'Testemunho a adicionar. A experiência na formação foi transformadora e superou as minhas expectativas.',
+    stars: 5,
+  },
+  {
+    name: 'Nome da formanda',
+    text: 'Testemunho a adicionar. O método Anderbrows é muito preciso e deu-me a confiança que precisava.',
+    stars: 5,
+  },
+  {
+    name: 'Nome da formanda',
+    text: 'Testemunho a adicionar. Recomendo vivamente a quem quer começar com o pé direito na área das sobrancelhas.',
+    stars: 5,
+  },
+  {
+    name: 'Nome da formanda',
+    text: 'Testemunho a adicionar. Apoio fantástico durante e após a formação.',
+    stars: 5,
+  }
+]
+
 export const INCLUDED = [
-  { icon: 'theory', t: 'Teoria completa', d: 'Fundamentos sólidos e método estruturado.' },
-  { icon: 'practice', t: 'Prática em modelo', d: 'Aplicação real com acompanhamento personalizado.' },
-  { icon: 'manual', t: 'Manual completo', d: 'Material de estudo para consultar para sempre.' },
-  { icon: 'cert', t: 'Certificado oficial', d: 'Comprovativo profissional Anderbrows Academy.' },
-  { icon: 'kit', t: 'Kit para 30 procedimentos', d: 'Tudo o que precisa para começar de imediato.' },
-  { icon: 'whatsapp', t: 'Apoio WhatsApp vitalício', d: 'Tire dúvidas durante toda a sua carreira.' },
-  { icon: 'community', t: 'Comunidade Anderbrows', d: 'Faça parte de uma rede de profissionais.' },
-  { icon: 'events', t: 'Eventos e descontos', d: 'Acesso a outras formações com vantagens exclusivas.' },
+  { icon: 'theory', t: 'Formação profissional intensiva', d: 'Teoria e prática com o método Anderbrows.' },
+  { icon: 'practice', t: 'Prática orientada', d: 'Aplicação real assistida pelos formadores.' },
+  { icon: 'manual', t: 'Manual de apoio', d: 'Material didático para consulta contínua.' },
+  { icon: 'cert', t: 'Certificado de participação', d: 'Reconhecimento pela conclusão da formação.' },
+  { icon: 'whatsapp', t: 'Apoio pós-formação', d: 'Acesso direto para tirar dúvidas e evoluir.' },
+  { icon: 'kit', t: 'Opção com Kit', d: 'Disponível na opção Formação + Kit para 20 a 30 procedimentos.' },
 ]
 
 export const TRAINERS = [
   {
-    name: 'Joana Barreira',
-    role: 'Formadora · Anderbrows Beauty and Academy',
-    bio: 'Especialista em Design de Sobrancelhas, Henna, Microblading, Nanoblading, Lifting de Pestanas e Brow Lamination. Primeira aluna do Uander em Portugal — referência pela técnica impecável.',
-    initials: 'JB',
+    name: 'Uander Machado',
+    role: 'Formador principal · CEO da Anderbrows Beauty and Academy',
+    bio: 'Master em Design de Sobrancelhas, Micropigmentação, Microblading e Nanoblading. Com mais de 10 anos de experiência em procedimentos e formações, é uma das referências da área em Portugal.',
+    initials: 'UM',
+    image: '/images/anderbrows/uander.jpeg'
   },
   {
-    name: 'Uander Machado',
-    role: 'CEO · Anderbrows Beauty and Academy',
-    bio: 'Master em Design de Sobrancelhas, Micropigmentação, Microblading e Nanoblading. Mais de 10 anos em procedimentos e formações, mentor de empresas no setor da beleza.',
-    initials: 'UM',
+    name: 'Joana Barreira',
+    role: 'Formadora · Anderbrows Beauty and Academy',
+    bio: 'Especialista em Design de Sobrancelhas, aplicação de henna e coloração, Microblading, Nanoblading, Lifting de Pestanas e Brow Lamination.',
+    initials: 'JB',
+    image: '/images/anderbrows/joana.jpeg'
   },
 ]
 
 export const FAQ_ITEMS = [
   {
-    q: 'Preciso de ter experiência?',
-    a: 'Não. A formação foi pensada tanto para iniciantes como para profissionais que pretendam aprender o método Anderbrows.',
+    q: 'Preciso ter experiência?',
+    a: 'Não. A formação é indicada para iniciantes e também para profissionais que desejam aperfeiçoar a técnica.',
   },
   {
-    q: 'A formação tem prática?',
-    a: 'Sim. Inclui teoria e prática em modelo real, com acompanhamento personalizado da formadora.',
+    q: 'A formação inclui prática?',
+    a: 'Sim. A formação inclui prática orientada para aplicar o método de forma segura e profissional.',
   },
   {
     q: 'Recebo certificado?',
-    a: 'Sim. No final recebe certificado oficial da Anderbrows Beauty and Academy.',
+    a: 'Sim. No final da formação recebe certificado de participação.',
   },
   {
     q: 'O kit está incluído?',
-    a: 'Sim. Oferecemos um kit surpresa que lhe permite realizar até 30 procedimentos.',
+    a: 'O kit está disponível na opção “Formação + Kit”, pensada para quem quer iniciar com material para realizar entre 20 a 30 procedimentos.',
+  },
+  {
+    q: 'Posso fazer apenas a formação?',
+    a: 'Sim. Existe a opção apenas com a formação e a opção mais completa con formação + kit.',
+  },
+  {
+    q: 'A modelo está incluída?',
+    a: 'Não. A modelo é da responsabilidade da formanda.',
+  },
+  {
+    q: 'Onde será a formação?',
+    a: 'Os detalhes finais são comunicados às formandas após confirmação da turma/vaga.',
   },
   {
     q: 'Como faço a inscrição?',
-    a: 'Contacte-nos via WhatsApp. A vaga é reservada com 100€ de inscrição. O restante é liquidado por transferência bancária, MBWay ou numerário até 1 semana antes.',
-  },
-  {
-    q: 'Onde acontece a formação?',
-    a: 'Na Rua da Boavista 844 / 2º andar — Sala 2.1, no Porto.',
-  },
-  {
-    q: 'Tenho apoio depois da formação?',
-    a: 'Sim. Apoio vitalício via WhatsApp e acesso à Comunidade Anderbrows com eventos e descontos exclusivos.',
+    a: 'Pode reservar a sua vaga através do WhatsApp e receber as orientações para inscrição.',
   },
 ]

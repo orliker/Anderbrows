@@ -9,9 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "animejs": "^4.0.2",
+    "@gsap/react": "^2.1.2",
+    "animejs": "^4.4.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
+    "lucide-react": "^1.14.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-intersection-observer": "^10.0.3",
+    "recharts": "^3.8.1",
+    "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
@@ -19,5 +28,10 @@
     "postcss": "^8.4.49",
     "tailwindcss": "^3.4.17",
     "vite": "^5.4.11"
-  }
+  },
+  "description": "Landing page premium para a formação **Design de Sobrancelhas + Aplicação de Henna e Coloração — 2026**.",
+  "main": "postcss.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

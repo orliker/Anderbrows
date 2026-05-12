@@ -1,80 +1,66 @@
+import { TRAINERS } from '../constants/content.js'
 import { useReveal } from '../hooks/useReveal.js'
-
-const TRAINERS = [
-  {
-    name: 'Joana Barreira',
-    role: 'Formadora · Anderbrows Beauty and Academy',
-    bio: 'Especialista em Design de Sobrancelhas, Henna, Microblading, Nanoblanding, Lifting de Pestanas e Brow Lamination. Primeira aluna do Uander em Portugal, reconhecida pela técnica e resultados impecáveis.',
-    photo: '/images/anderbrows/joana.jpeg',
-    photoPosition: '70% 22%',
-    badge: 'Trainer',
-  },
-  {
-    name: 'Uander Machado',
-    role: 'CEO · Anderbrows Beauty and Academy',
-    bio: 'Master em Design de Sobrancelhas, Micropigmentação, Microblading e Nanoblanding. Com mais de 10 anos de experiência em procedimentos e formações, é uma das referências da área em Portugal.',
-    photo: '/images/anderbrows/uander.jpeg',
-    photoPosition: '50% 25%',
-    badge: 'Founder',
-  },
-]
 
 export default function Trainers() {
   const ref = useReveal({ delayBetween: 140 })
 
   return (
-    <section id="formadores" ref={ref} className="relative py-20 sm:py-28 bg-cream-100/60">
-      <div className="container-x">
+    <section id="formadores" ref={ref} className="relative py-20 sm:py-28 bg-warm-cream">
+      <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
+      <div className="container-x relative">
         <div className="max-w-3xl">
           <div className="reveal-init">
-            <span className="eyebrow">Os Formadores</span>
+            <span className="eyebrow text-terracotta">A Nossa Equipa</span>
           </div>
-          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px]">
-            Aprenda com quem é <em className="not-italic italic gold-text">referência</em> em Portugal.
+          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] text-rich-black">
+            Aprenda com quem é <em className="not-italic italic text-terracotta">referência</em>.
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 mt-12 sm:mt-14">
-          {TRAINERS.map((t) => (
+        <div className="grid sm:grid-cols-2 gap-8 sm:gap-12 mt-12 sm:mt-16">
+          {TRAINERS.map((t, i) => (
             <article
               key={t.name}
-              className="reveal-init group relative rounded-2xl sm:rounded-3xl bg-white border border-cream-200 overflow-hidden transition-all duration-500 hover:border-champagne-500/40 hover:shadow-soft hover:-translate-y-1"
+              className={`reveal-init group relative rounded-[40px] overflow-hidden transition-all duration-700 ${
+                i === 0 ? 'bg-chocolate text-warm-cream sm:-translate-y-4 shadow-2xl border border-terracotta/20' : 'bg-white border border-warm-beige text-deep-brown shadow-lg'
+              } hover:shadow-2xl hover:-translate-y-2`}
             >
-              {/* Photo — controlled height across breakpoints */}
-              <div className="relative w-full h-[280px] sm:h-[340px] lg:h-[420px] overflow-hidden bg-mocha-900">
+              {/* Photo */}
+              <div className="relative w-full h-[360px] sm:h-[440px] overflow-hidden bg-warm-beige">
                 <img
-                  src={t.photo}
+                  src={t.image}
                   alt={`Retrato de ${t.name}`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  style={{ objectPosition: t.photoPosition }}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.05]"
+                  style={{ objectPosition: 'center top' }}
                 />
-
-                {/* Gradient overlay for legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-mocha-900/60 via-mocha-900/0 to-transparent pointer-events-none" />
-
-                {/* Badge */}
-                <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-cream-50/90 backdrop-blur text-[10px] uppercase tracking-widest2 text-mocha-900 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-champagne-500" />
-                  Anderbrows {t.badge}
+                {/* Fixed Overlays: No white washing for Joana, just a subtle dark gradient for text legibility */}
+                <div className={`absolute inset-0 bg-gradient-to-t ${i === 0 ? 'from-chocolate via-chocolate/30' : 'from-rich-black/80 via-rich-black/10'} to-transparent pointer-events-none`} />
+                
+                <div className={`absolute top-6 left-6 px-4 py-2 rounded-full backdrop-blur-md border ${
+                  i === 0 ? 'bg-terracotta/80 border-terracotta text-white shadow-md' : 'bg-white/90 border-white text-terracotta shadow-md'
+                } text-[10px] uppercase tracking-widest2 font-bold flex items-center gap-2`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${i === 0 ? 'bg-white animate-pulse' : 'bg-terracotta'}`} />
+                  {i === 0 ? 'Formador Principal' : 'Formadora'}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 sm:p-7 lg:p-8">
-                <div className="text-[10px] uppercase tracking-widest2 text-champagne-600">
+              <div className="px-8 pb-10 pt-6 sm:px-10">
+                <div className={`text-[10px] uppercase tracking-widest2 font-bold ${i === 0 ? 'text-gold-light' : 'text-terracotta'}`}>
                   {t.role}
                 </div>
-                <h3 className="font-display text-2xl sm:text-2xl lg:text-3xl text-mocha-900 leading-tight mt-2">
+                <h3 className="font-display text-3xl lg:text-4xl leading-tight mt-3">
                   {t.name}
                 </h3>
-                <p className="mt-4 text-sm sm:text-[15px] text-mocha-700 leading-relaxed">
+                <p className={`mt-5 text-base leading-relaxed ${i === 0 ? 'text-warm-beige/80' : 'text-mocha-800'} font-medium`}>
                   {t.bio}
                 </p>
-                <div className="mt-6 flex items-center gap-2">
-                  <span className="w-8 h-px bg-champagne-500" />
-                  <span className="text-[10px] uppercase tracking-widest2 text-mocha-700/70">
-                    Equipa Anderbrows
+                
+                <div className="mt-8 flex items-center gap-4">
+                  <div className={`w-12 h-px ${i === 0 ? 'bg-gold-warm' : 'bg-terracotta'}`} />
+                  <span className={`text-[10px] uppercase tracking-widest2 font-bold ${i === 0 ? 'text-warm-beige/50' : 'text-terracotta/70'}`}>
+                    Anderbrows Beauty
                   </span>
                 </div>
               </div>

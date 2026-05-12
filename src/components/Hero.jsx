@@ -75,82 +75,51 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="top"
-      className="relative pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-28 overflow-hidden"
+      className="relative pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-28 overflow-hidden bg-warm-beige"
     >
       {/* Ambient backgrounds */}
-      <div className="absolute inset-0 bg-cream-grad pointer-events-none" />
-      <div className="absolute inset-0 bg-grain opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(217,121,74,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-noise opacity-50 pointer-events-none" />
 
-      {/* Decorative gold orbs */}
-      <div className="absolute -top-20 -right-32 w-[500px] h-[500px] rounded-full bg-gold-grad opacity-15 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full bg-champagne-400/20 blur-3xl pointer-events-none" />
+      {/* Decorative orbs */}
+      <div className="absolute -top-20 -right-32 w-[500px] h-[500px] rounded-full bg-terracotta opacity-10 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full bg-chocolate/10 blur-[100px] pointer-events-none" />
 
-      {/* Decorative SVG lines */}
-      <svg
-        className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
-        viewBox="0 0 1440 800"
-        preserveAspectRatio="none"
-        aria-hidden="true"
-      >
-        <path
-          className="hero-line"
-          d="M0,640 C 360,580 720,720 1440,560"
-          stroke="url(#heroGradLine)"
-          strokeWidth="1"
-          fill="none"
-        />
-        <path
-          className="hero-line"
-          d="M0,720 C 480,660 960,780 1440,680"
-          stroke="url(#heroGradLine)"
-          strokeWidth="1"
-          fill="none"
-          opacity="0.5"
-        />
-        <defs>
-          <linearGradient id="heroGradLine" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stopColor="#C8A772" stopOpacity="0" />
-            <stop offset="0.5" stopColor="#B08A5B" />
-            <stop offset="1" stopColor="#C8A772" stopOpacity="0" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div className="container-x relative">
+      <div className="container-x relative z-10">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* LEFT */}
           <div className="lg:col-span-7">
             <div className="hero-badge inline-flex" style={{ opacity: 0 }}>
-              <span className="badge-pill">
-                <span className="w-1.5 h-1.5 rounded-full bg-champagne-500 animate-pulse" />
-                Formação Profissional · {COURSE.city} · {COURSE.date}
+              <span className="badge-pill !bg-white/80 !border-terracotta/40">
+                <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />
+                Formação Profissional · {COURSE.date}
               </span>
             </div>
 
             <h1
-              className="h-display mt-7"
-              style={{ fontSize: 'clamp(2.25rem, 6.5vw, 4.625rem)', lineHeight: 1.05 }}
+              className="h-display mt-7 text-rich-black drop-shadow-sm"
+              style={{ fontSize: 'clamp(2.5rem, 7vw, 5.25rem)', lineHeight: 1 }}
             >
-              <span className="hero-title-line block" style={{ opacity: 0 }}>
-                Domine o <em className="not-italic font-display italic gold-text">Design</em>
+              <span className="hero-title-line block font-bold" style={{ opacity: 0 }}>
+                Design de
               </span>
-              <span className="hero-title-line block" style={{ opacity: 0 }}>
-                de Sobrancelhas
-              </span>
-              <span
-                className="hero-title-line block text-mocha-700 mt-3"
-                style={{ opacity: 0, fontSize: 'clamp(1.5rem, 4.5vw, 3.25rem)', lineHeight: 1.1 }}
-              >
-                com o método Anderbrows
+              <span className="hero-title-line block font-display italic text-terracotta drop-shadow-md" style={{ opacity: 0 }}>
+                Sobrancelhas
               </span>
             </h1>
 
             <p
-              className="hero-sub mt-7 max-w-xl text-base sm:text-lg text-mocha-700 leading-relaxed"
+              className="hero-sub mt-7 max-w-xl text-lg sm:text-xl text-chocolate leading-relaxed font-bold"
               style={{ opacity: 0 }}
             >
-              Uma formação profissional para iniciantes e profissionais que desejam transformar
-              técnica, beleza e conhecimento numa <strong className="text-mocha-900 font-medium">carreira rentável</strong>.
+              Uma formação para aprender com técnica, segurança e sensibilidade estética. ♡
+            </p>
+
+            <p
+              className="hero-sub mt-4 max-w-lg text-base text-deep-brown leading-relaxed font-medium"
+              style={{ opacity: 0 }}
+            >
+              {COURSE.description}
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -161,31 +130,29 @@ export default function Hero() {
                 className="hero-cta btn-primary"
                 style={{ opacity: 0 }}
               >
-                Quero reservar a minha vaga
-                <ArrowRight />
+                Quero inscrever-me ✨
               </a>
               <a
                 href="#programa"
-                className="hero-cta btn-secondary"
+                className="hero-cta btn-secondary !bg-white/50 hover:!bg-white"
                 style={{ opacity: 0 }}
               >
-                Ver programa da formação
+                Ver programa
               </a>
             </div>
 
             {/* Meta strip */}
-            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
+            <div className="mt-12 flex flex-wrap gap-x-10 gap-y-6 p-6 rounded-3xl bg-white/40 border border-white/60 backdrop-blur-md shadow-sm">
               {[
-                { k: 'Próxima turma', v: COURSE.date },
-                { k: 'Cidade', v: COURSE.city },
-                { k: 'Apoio', v: 'Vitalício' },
-                { k: 'Inclui', v: 'Kit + Certificado' },
+                { k: 'Formação intensiva', v: 'Prática e Teoria' },
+                { k: 'Especialização', v: 'Henna & Coloração' },
+                { k: 'Método', v: 'Anderbrows' },
               ].map((m, i) => (
                 <div key={i} className="hero-meta" style={{ opacity: 0 }}>
-                  <div className="text-[10px] uppercase tracking-widest2 text-mocha-700/60">
+                  <div className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
                     {m.k}
                   </div>
-                  <div className="text-sm text-mocha-900 font-medium mt-0.5">{m.v}</div>
+                  <div className="text-sm sm:text-base text-rich-black font-bold mt-1">{m.v}</div>
                 </div>
               ))}
             </div>
@@ -205,26 +172,11 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
-        <span className="text-[10px] uppercase tracking-widest2 text-mocha-700/60">
+        <span className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
           Continue a explorar
         </span>
-        <div className="w-px h-10 bg-gradient-to-b from-champagne-500 to-transparent" />
+        <div className="w-px h-10 bg-gradient-to-b from-terracotta to-transparent" />
       </div>
     </section>
-  )
-}
-
-function ArrowRight() {
-  return (
-    <svg
-      className="w-4 h-4 transition-transform group-hover:translate-x-1"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-    >
-      <path d="M5 12h14M13 5l7 7-7 7" />
-    </svg>
   )
 }

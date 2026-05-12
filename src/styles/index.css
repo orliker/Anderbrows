@@ -7,10 +7,15 @@
    ============================================================ */
 
 :root {
-  --gold-1: #C8A772;
-  --gold-2: #E5CDA1;
-  --gold-3: #B08A5B;
-  --cream: #FBF7F1;
+  --gold-warm: #C89A4B;
+  --gold-light: #E1B96B;
+  --terracotta: #C45F32;
+  --terracotta-soft: #D9794A;
+  --rich-black: #120D09;
+  --chocolate: #1A100B;
+  --deep-brown: #2A1810;
+  --warm-beige: #EADBC8;
+  --warm-cream: #F6ECDD;
 }
 
 html {
@@ -18,23 +23,23 @@ html {
 }
 
 body {
-  background-color: var(--cream);
-  color: #15100A;
+  background-color: var(--warm-beige);
+  color: var(--rich-black);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 /* Selection styling */
 ::selection {
-  background: var(--gold-1);
-  color: #15100A;
+  background: var(--terracotta);
+  color: #FFF;
 }
 
 /* Scrollbar (subtle, premium) */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #F6EFE3; }
-::-webkit-scrollbar-thumb { background: #DBC9A8; border-radius: 999px; }
-::-webkit-scrollbar-thumb:hover { background: #C8A772; }
+::-webkit-scrollbar-track { background: var(--warm-beige); }
+::-webkit-scrollbar-thumb { background: var(--terracotta-soft); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--terracotta); }
 
 /* ----------------------------------------------------------
    Components / utilities
@@ -46,27 +51,27 @@ body {
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[11px] sm:text-xs font-medium uppercase tracking-widest2 text-mocha-700;
+    @apply inline-flex items-center gap-3 text-[11px] sm:text-xs font-bold uppercase tracking-widest2 text-terracotta;
   }
 
   .eyebrow::before {
     content: '';
     width: 28px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #B08A5B);
+    background: linear-gradient(90deg, transparent, var(--terracotta));
   }
 
   .eyebrow.center::before { display: none; }
 
   .h-display {
-    @apply font-display font-light leading-[1.05] tracking-tight text-mocha-900;
+    @apply font-display font-medium leading-[1.05] tracking-tight text-rich-black;
   }
 
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full
-           bg-mocha-900 text-cream-50 font-medium text-sm tracking-wide
-           transition-all duration-500 overflow-hidden
-           hover:shadow-soft hover:-translate-y-0.5;
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full
+           bg-terracotta text-white font-bold text-sm tracking-wide
+           transition-all duration-500 overflow-hidden shadow-lg
+           hover:shadow-xl hover:-translate-y-0.5 hover:bg-[#B9552A];
   }
 
   .btn-primary::before {
@@ -75,7 +80,7 @@ body {
     inset: 0;
     background: linear-gradient(120deg,
       transparent 30%,
-      rgba(229, 205, 161, 0.4) 50%,
+      rgba(255, 255, 255, 0.25) 50%,
       transparent 70%);
     transform: translateX(-120%);
     transition: transform 0.9s ease;
@@ -86,42 +91,47 @@ body {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full
-           border border-mocha-900/20 bg-transparent text-mocha-900 font-medium text-sm tracking-wide
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full
+           border-2 border-deep-brown text-deep-brown font-bold text-sm tracking-wide
            transition-all duration-300
-           hover:border-mocha-900/60 hover:bg-mocha-900/5 hover:-translate-y-0.5;
+           hover:bg-deep-brown hover:text-white hover:-translate-y-0.5;
   }
 
   .badge-pill {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-full
-           border border-champagne-500/30 bg-cream-100/80 backdrop-blur
-           text-[11px] sm:text-xs uppercase tracking-widest2 text-mocha-700;
+           border border-terracotta/30 bg-white/60 backdrop-blur-md
+           text-[11px] sm:text-xs font-bold uppercase tracking-widest2 text-deep-brown shadow-sm;
   }
 
   .gold-divider {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-champagne-500/60 to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gold-warm/60 to-transparent;
   }
 
   .card-premium {
-    @apply relative rounded-2xl border border-cream-200 bg-white/70 backdrop-blur
-           p-6 sm:p-8 transition-all duration-500
-           hover:border-champagne-500/40 hover:shadow-card hover:-translate-y-1;
+    @apply relative rounded-3xl border border-white/40 bg-warm-cream/90 backdrop-blur-md
+           p-8 sm:p-10 transition-all duration-500 shadow-soft
+           hover:border-terracotta/30 hover:shadow-card hover:-translate-y-1;
   }
 
   .card-dark {
-    @apply relative rounded-2xl bg-mocha-900 text-cream-50 p-6 sm:p-8
-           border border-mocha-700/50 transition-all duration-500
-           hover:border-champagne-500/50 hover:-translate-y-1;
+    @apply relative rounded-3xl bg-chocolate text-warm-cream p-8 sm:p-10
+           border border-terracotta/20 transition-all duration-500 shadow-xl
+           hover:border-terracotta/50 hover:-translate-y-1;
   }
 
   .gold-text {
-    background: linear-gradient(135deg, #C8A772 0%, #E5CDA1 50%, #B08A5B 100%);
+    background: linear-gradient(135deg, #B9552A 0%, #C89A4B 50%, #B9552A 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     background-size: 200% 200%;
     animation: shimmer 4s ease-in-out infinite;
   }
+
+  .terracotta-text {
+    @apply text-terracotta font-semibold;
+  }
+
 
   .vignette::before {
     content: '';

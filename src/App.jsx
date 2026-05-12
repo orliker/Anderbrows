@@ -4,10 +4,11 @@ import TrustStrip from './components/TrustStrip.jsx'
 import Authority from './components/Authority.jsx'
 import Audience from './components/Audience.jsx'
 import Curriculum from './components/Curriculum.jsx'
+import Gallery from './components/Gallery.jsx'
 import Transformation from './components/Transformation.jsx'
+import Testimonials from './components/Testimonials.jsx'
 import Earnings from './components/Earnings.jsx'
 import Included from './components/Included.jsx'
-import Bonus from './components/Bonus.jsx'
 import Investment from './components/Investment.jsx'
 import MethodVisual from './components/MethodVisual.jsx'
 import Trainers from './components/Trainers.jsx'
@@ -19,7 +20,7 @@ import FloatingWhatsApp from './components/FloatingWhatsApp.jsx'
 
 export default function App() {
   return (
-    <div className="relative overflow-x-hidden">
+    <div className="relative overflow-x-hidden bg-warm-cream selection:bg-terracotta selection:text-white">
       <Navbar />
       <main>
         <Hero />
@@ -27,10 +28,11 @@ export default function App() {
         <Authority />
         <Audience />
         <Curriculum />
+        <Gallery />
         <Transformation />
+        <Testimonials />
         <Earnings />
         <Included />
-        <Bonus />
         <Investment />
         <MethodVisual />
         <Trainers />
