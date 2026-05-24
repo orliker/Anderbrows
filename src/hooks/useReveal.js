@@ -1,85 +1,78 @@
 import { useEffect, useRef } from 'react'
-import { animate, stagger } from 'animejs'
 
-/**
- * Reveal children of a section when it enters the viewport.
- * Targets elements with `.reveal-init` inside the ref.
- *
- * options:
- *  - selector: querySelector for items (default ".reveal-init")
- *  - delayBetween: ms between items (default 90)
- *  - duration: per-item duration (default 900)
- *  - threshold: IntersectionObserver threshold (default 0.18)
- *  - y: starting translateY (default 28)
- */
 export function useReveal({
   selector = '.reveal-init',
-  delayBetween = 90,
-  duration = 900,
-  threshold = 0.18,
-  y = 28,
+  delayBetween = 70,
+  threshold = 0.12,
 } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
     const root = ref.current
     if (!root) return
-    const items = root.querySelectorAll(selector)
+
+    const items = [...root.querySelectorAll(selector)]
     if (!items.length) return
 
-    let played = false
+    items.forEach((item, index) => {
+      item.style.setProperty('--reveal-delay', `${index * delayBetween}ms`)
+    })
+
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || played) return
-        played = true
-        animate(items, {
-          opacity: [0, 1],
-          translateY: [y, 0],
-          duration,
-          easing: 'easeOutExpo',
-          delay: stagger(delayBetween),
-        })
+        if (!entry.isIntersecting) return
+        root.classList.add('is-revealed')
         io.disconnect()
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -8% 0px' }
     )
+
     io.observe(root)
     return () => io.disconnect()
-  }, [selector, delayBetween, duration, threshold, y])
+  }, [selector, delayBetween, threshold])
 
   return ref
 }
 
-/**
- * Animated count-up triggered when element enters viewport.
- */
-export function useCountUp(target, { duration = 1800, easing = 'easeOutExpo' } = {}) {
+export function useCountUp(target, { duration = 1200 } = {}) {
   const ref = useRef(null)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    const obj = { v: 0 }
+
+    let raf = 0
     let played = false
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || played) return
         played = true
-        animate(obj, {
-          v: target,
-          duration,
-          easing,
-          onUpdate: () => {
-            el.textContent = Math.round(obj.v).toLocaleString('pt-PT')
-          },
-        })
+
+        const start = performance.now()
+        const step = (now) => {
+          const progress = Math.min((now - start) / duration, 1)
+          const eased = 1 - Math.pow(1 - progress, 3)
+          el.textContent = Math.round(target * eased).toLocaleString('pt-PT')
+
+          if (progress < 1) {
+            raf = requestAnimationFrame(step)
+          }
+        }
+
+        raf = requestAnimationFrame(step)
         io.disconnect()
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     )
+
     io.observe(el)
-    return () => io.disconnect()
-  }, [target, duration, easing])
+
+    return () => {
+      cancelAnimationFrame(raf)
+      io.disconnect()
+    }
+  }, [target, duration])
 
   return ref
 }

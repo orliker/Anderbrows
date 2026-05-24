@@ -47,7 +47,7 @@ export default {
       },
       fontFamily: {
         display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Afacad', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         widest2: '0.32em',

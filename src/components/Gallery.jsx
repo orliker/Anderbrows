@@ -1,59 +1,86 @@
+const images = [
+  {
+    src: '/images/anderbrows/student-certificates.jpg',
+    title: 'Foto da formação 👩‍🎓',
+    caption: 'Turma, certificados e aquele orgulho bom de terminar uma etapa.',
+    className: 'lg:col-span-7 min-h-[360px] sm:min-h-[520px]',
+    position: 'center 42%',
+  },
+  {
+    src: '/images/anderbrows/kit-editorial.jpg',
+    title: 'Kit de trabalho',
+    caption: 'Material bonito, organizado e pronto para os primeiros atendimentos.',
+    className: 'lg:col-span-5 min-h-[250px] sm:min-h-[250px]',
+    position: 'center 44%',
+  },
+  {
+    src: '/images/anderbrows/practice-mapping.jpg',
+    title: 'Prática em modelo',
+    caption: 'Marcação com paquímetro, orientação e correção ao vivo.',
+    className: 'lg:col-span-3 min-h-[250px]',
+    position: 'center 48%',
+  },
+  {
+    src: '/images/anderbrows/hero-brow-closeup.jpg',
+    title: 'Acabamento',
+    caption: 'Um resultado limpo, natural e muito fotografável.',
+    className: 'lg:col-span-4 min-h-[250px]',
+    position: 'center 48%',
+  },
+  {
+    src: '/images/anderbrows/before-after-precision-02.jpg',
+    title: 'Resultado real',
+    caption: 'Antes e depois para treinar olho, técnica e bom senso.',
+    className: 'lg:col-span-5 min-h-[250px]',
+    position: 'center 50%',
+  },
+]
+
 export default function Gallery() {
   return (
-    <section className="relative py-20 sm:py-28 bg-deep-brown overflow-hidden">
-      <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-chocolate/40 blur-[120px] pointer-events-none" />
-      
+    <section id="formacao" className="relative py-16 sm:py-24 bg-warm-cream overflow-hidden">
+      <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
+
       <div className="container-x relative">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="reveal-init">
-             <span className="eyebrow center justify-center text-terracotta-soft">Bastidores</span>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-end mb-10">
+          <div className="lg:col-span-7">
+            <div className="reveal-init">
+              <span className="eyebrow text-terracotta">Por dentro da formação</span>
+            </div>
+            <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-rich-black">
+              Uma turma pequena, prática real e um ambiente próximo.
+            </h2>
           </div>
-          <h2 className="reveal-init h-display mt-5 text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight text-warm-cream">
-             O ambiente da nossa <em className="not-italic italic gold-text">formação</em>.
-          </h2>
+          <p className="reveal-init lg:col-span-5 text-deep-brown/75 text-base sm:text-lg leading-relaxed font-medium">
+            Aqui não é só uma aula bonita no papel. É mão na massa, correção lado a lado, certificado no final e aquela sensação de “agora eu consigo”. 🤎
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 auto-rows-[200px] sm:auto-rows-[250px]">
-          {/* Large main photo */}
-          <div className="col-span-2 row-span-2 relative rounded-[32px] overflow-hidden bg-chocolate border border-terracotta/20 group hover:border-terracotta/50 transition-all duration-500">
-             <div className="absolute inset-0 bg-gradient-to-tr from-rich-black/60 to-terracotta/10" />
-             <div className="absolute inset-0 flex flex-col items-center justify-center italic text-warm-beige/40 font-medium gap-3">
-               <svg viewBox="0 0 24 24" className="w-8 h-8 opacity-40" fill="none" stroke="currentColor" strokeWidth="1.5">
-                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                 <circle cx="8.5" cy="8.5" r="1.5"/>
-                 <polyline points="21 15 16 10 5 21"/>
-               </svg>
-               Foto da formação / ambiente
-             </div>
-             <div className="absolute bottom-6 left-6 px-5 py-2 bg-rich-black/80 backdrop-blur-md border border-white/10 rounded-full text-[10px] uppercase tracking-widest text-warm-beige font-bold shadow-lg">
-               Ambiente de aula ✨
-             </div>
-          </div>
-
-          {/* Small photo 1 */}
-          <div className="relative rounded-[24px] overflow-hidden bg-rich-black border border-white/5 group hover:border-terracotta/30 transition-all duration-500">
-             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-terracotta/20" />
-             <div className="absolute inset-0 flex items-center justify-center text-center px-4 italic text-terracotta-soft/60 text-sm font-medium">
-               Detalhe do kit
-             </div>
-          </div>
-
-          {/* Small photo 2 */}
-          <div className="relative rounded-[24px] overflow-hidden bg-chocolate border border-white/5 group hover:border-gold-light/30 transition-all duration-500">
-             <div className="absolute inset-0 bg-gradient-to-bl from-transparent to-gold-warm/10" />
-             <div className="absolute inset-0 flex items-center justify-center text-center px-4 italic text-gold-warm/60 text-sm font-medium">
-               Prática em modelo
-             </div>
-          </div>
-
-          {/* Wide photo */}
-          <div className="col-span-2 relative rounded-[24px] overflow-hidden bg-rich-black border border-white/5 group hover:border-terracotta/30 transition-all duration-500">
-             <div className="absolute inset-0 bg-gradient-to-r from-chocolate/40 to-transparent" />
-             <div className="absolute inset-0 flex items-center justify-center text-center px-4 italic text-warm-beige/40 font-medium">
-               Turma e certificados ♡
-             </div>
-          </div>
+        <div className="grid lg:grid-cols-12 gap-4 sm:gap-5">
+          {images.map((image) => (
+            <article
+              key={image.src}
+              className={`reveal-init relative rounded-[24px] overflow-hidden bg-rich-black border border-white/60 shadow-card group ${image.className}`}
+            >
+              <img
+                src={image.src}
+                alt={image.title}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                style={{ objectPosition: image.position }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/58 via-rich-black/5 to-transparent pointer-events-none" />
+              <div className="absolute left-5 right-5 bottom-5">
+                <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
+                  {image.title}
+                </div>
+                <p className="mt-1 max-w-md text-sm sm:text-base text-warm-cream font-semibold leading-tight">
+                  {image.caption}
+                </p>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
