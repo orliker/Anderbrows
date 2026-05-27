@@ -60,7 +60,16 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-5 text-xs text-warm-beige/50 font-bold">
           <div>© {new Date().getFullYear()} {BRAND.fullName}. Todos os direitos reservados.</div>
-          <div>Made in Porto</div>
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5">
+            <a
+              href="/politica-privacidade-cookies.html"
+              className="text-warm-beige/65 hover:text-terracotta-soft transition-colors"
+            >
+              Política de Privacidade e Cookies
+            </a>
+            <span className="hidden sm:block h-1 w-1 rounded-full bg-terracotta-soft/70" aria-hidden="true" />
+            <div>Made in Porto</div>
+          </div>
         </div>
       </div>
     </footer>
