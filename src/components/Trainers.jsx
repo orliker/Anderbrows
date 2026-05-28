@@ -5,7 +5,7 @@ export default function Trainers() {
   const ref = useReveal({ delayBetween: 140 })
 
   return (
-    <section id="formadores" ref={ref} className="relative py-20 sm:py-28 bg-warm-cream">
+    <section id="formadores" ref={ref} className="relative py-16 sm:py-24 bg-warm-cream studio-edge-light studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
       <div className="container-x relative">
         <div className="max-w-3xl">
@@ -32,10 +32,10 @@ export default function Trainers() {
                   src={t.image}
                   alt={`Retrato de ${t.name}`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.04]"
-                  style={{ objectPosition: 'center top' }}
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover brightness-[1.45] contrast-[1.03] saturate-[1.06] transition-transform duration-1000 group-hover:scale-[1.04]"
+                  style={{ objectPosition: 'center 38%' }}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${i === 0 ? 'from-chocolate via-chocolate/25' : 'from-rich-black/75 via-rich-black/10'} to-transparent pointer-events-none`} />
                 <div
                   className={`absolute top-5 left-5 px-4 py-2 rounded-full backdrop-blur-md border ${
                     i === 0 ? 'bg-terracotta/80 border-terracotta text-white' : 'bg-white/90 border-white text-terracotta'

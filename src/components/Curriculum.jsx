@@ -11,7 +11,7 @@ export default function Curriculum() {
   const goNext = () => setActiveIdx((activeIdx + 1) % CURRICULUM.length)
 
   return (
-    <section id="programa" ref={ref} className="relative py-20 sm:py-28 bg-warm-beige">
+    <section id="programa" ref={ref} className="relative py-16 sm:py-24 bg-warm-beige studio-edge-light studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-18 pointer-events-none" />
       <div className="container-x relative">
         <div className="text-center max-w-3xl mx-auto mb-14">

@@ -2,7 +2,7 @@ import { CONTACT, BRAND } from '../constants/content.js'
 
 export default function Footer() {
   return (
-    <footer className="relative bg-chocolate text-warm-beige/65 pt-18 pb-10 overflow-hidden">
+    <footer className="relative bg-chocolate text-warm-beige/65 pt-20 pb-10 overflow-hidden studio-edge-dark studio-hairline">
       <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
 
       <div className="container-x relative">

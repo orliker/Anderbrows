@@ -5,11 +5,11 @@ export default function Authority() {
   const ref = useReveal({ delayBetween: 110 })
 
   return (
-    <section id="sobre" ref={ref} className="relative py-20 sm:py-28 bg-warm-cream">
+    <section id="sobre" ref={ref} className="relative py-16 sm:py-24 bg-warm-cream studio-edge-light studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-12 gap-10 items-end mb-14">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-12">
           <div className="lg:col-span-7">
             <div className="reveal-init">
               <span className="eyebrow text-terracotta">Anderbrows Academy</span>
@@ -23,6 +23,14 @@ export default function Authority() {
               A formação combina leitura facial, precisão de marcação e prática acompanhada. A proposta é simples:
               sair com uma técnica organizada, repetível e pronta para atendimento profissional, sem perder o toque humano.
             </p>
+            <div className="reveal-init mt-7 rounded-[24px] border border-terracotta/20 bg-off-white/80 p-5 shadow-card backdrop-blur">
+              <div className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
+                Ambiente de estúdio
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-deep-brown/80 font-medium">
+                Turma pequena, mesa organizada, correção lado a lado e tempo para perguntar sem pressa.
+              </p>
+            </div>
           </div>
         </div>
 

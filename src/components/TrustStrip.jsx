@@ -11,7 +11,7 @@ function TrustNumber({ item }) {
   const ref = useCountUp(item.value, { duration: 1400 })
 
   return (
-    <article className="reveal-init bg-white/70 border border-terracotta/10 rounded-[22px] px-5 py-5 shadow-sm">
+    <article className="reveal-init bg-off-white/95 border border-terracotta/20 rounded-[22px] px-5 py-5 shadow-card backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/40">
       <div className="flex items-baseline gap-1">
         <span ref={ref} className="font-display text-4xl sm:text-5xl leading-none text-rich-black">
           0
@@ -30,7 +30,7 @@ export default function TrustStrip() {
   const ref = useReveal({ delayBetween: 90, y: 16 })
 
   return (
-    <section ref={ref} className="relative py-8 border-y border-terracotta/10 bg-warm-cream shadow-sm">
+    <section ref={ref} className="relative z-20 -mt-8 pb-10 bg-transparent">
       <div className="container-x">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {TRUST.map((item) => (

@@ -1,11 +1,11 @@
-import { WHATSAPP_URL, COURSE, CONTACT } from '../constants/content.js'
+import { WHATSAPP_URL, COURSE } from '../constants/content.js'
 import { useReveal } from '../hooks/useReveal.js'
 
 export default function FinalCTA() {
   const ref = useReveal({ delayBetween: 100 })
 
   return (
-    <section ref={ref} className="relative py-24 sm:py-32 overflow-hidden bg-warm-cream">
+    <section ref={ref} className="relative py-20 sm:py-24 overflow-hidden bg-warm-cream studio-edge-light studio-hairline">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="container-x relative">
@@ -29,9 +29,6 @@ export default function FinalCTA() {
                 className="btn-primary !px-10 !py-5 shadow-2xl"
               >
               Reservar via WhatsApp
-              </a>
-              <a href={`mailto:${CONTACT.email}`} className="btn-secondary !px-10 !py-5 !border-terracotta/30 text-deep-brown">
-                Tirar dúvidas por email
               </a>
             </div>
           </div>

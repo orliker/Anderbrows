@@ -18,17 +18,34 @@ export function useReveal({
       item.style.setProperty('--reveal-delay', `${index * delayBetween}ms`)
     })
 
-    const io = new IntersectionObserver(
+    let io
+    const reveal = () => {
+      root.classList.add('is-revealed')
+      window.removeEventListener('scroll', revealIfReached)
+      if (io) io.disconnect()
+    }
+
+    const revealIfReached = () => {
+      const rect = root.getBoundingClientRect()
+      if (rect.top < window.innerHeight * 0.92) reveal()
+    }
+
+    io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
-        root.classList.add('is-revealed')
-        io.disconnect()
+        reveal()
       },
       { threshold, rootMargin: '0px 0px -8% 0px' }
     )
 
     io.observe(root)
-    return () => io.disconnect()
+    requestAnimationFrame(revealIfReached)
+    window.addEventListener('scroll', revealIfReached, { passive: true })
+
+    return () => {
+      window.removeEventListener('scroll', revealIfReached)
+      io.disconnect()
+    }
   }, [selector, delayBetween, threshold])
 
   return ref

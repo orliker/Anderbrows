@@ -10,7 +10,7 @@ export default function MethodVisual() {
   const ref = useReveal({ delayBetween: 110 })
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 lg:py-32 bg-deep-brown overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-24 bg-deep-brown studio-edge-dark studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
 
       <div className="container-x relative">

@@ -5,15 +5,15 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative pt-32 sm:pt-36 lg:pt-40 pb-16 lg:pb-24 overflow-hidden bg-warm-beige"
+      className="relative pt-28 sm:pt-32 lg:pt-36 pb-20 lg:pb-24 overflow-hidden bg-warm-beige studio-edge-light"
     >
       <div className="absolute inset-0 bg-noise opacity-45 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-off-white/70 to-transparent pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-warm-cream/80 to-transparent pointer-events-none" />
 
       <div className="container-x relative z-10">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          <div className="lg:col-span-7">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center">
+          <div className="lg:col-span-6">
             <h1
               className="h-display text-rich-black"
               style={{ fontSize: 'clamp(2.75rem, 7vw, 5.75rem)', lineHeight: 0.96 }}
@@ -27,14 +27,14 @@ export default function Hero() {
             </h1>
 
             <p
-              className="hero-rise mt-7 max-w-xl text-lg sm:text-xl text-chocolate leading-relaxed font-semibold"
+              className="hero-rise mt-7 max-w-2xl text-lg sm:text-xl text-chocolate leading-relaxed font-semibold"
               style={{ animationDelay: '280ms' }}
             >
               Uma experiência prática, próxima e muito cuidada para dominar mapeamento, simetria, henna e coloração com o método Anderbrows.
             </p>
 
             <p
-              className="hero-rise mt-4 max-w-lg text-base text-deep-brown/80 leading-relaxed font-medium"
+              className="hero-rise mt-4 max-w-xl text-base text-deep-brown/80 leading-relaxed font-medium"
               style={{ animationDelay: '360ms' }}
             >
               {COURSE.description}
@@ -65,7 +65,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hero-rise lg:col-span-5 relative" style={{ animationDelay: '300ms' }}>
+          <div className="hero-rise lg:col-span-6 relative" style={{ animationDelay: '300ms' }}>
             <div className="hero-float relative">
               <HeroVisual />
             </div>

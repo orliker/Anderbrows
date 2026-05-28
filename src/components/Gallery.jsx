@@ -1,3 +1,5 @@
+import { useReveal } from '../hooks/useReveal.js'
+
 const images = [
   {
     src: '/images/anderbrows/student-certificates.jpg',
@@ -37,12 +39,14 @@ const images = [
 ]
 
 export default function Gallery() {
+  const ref = useReveal({ delayBetween: 85 })
+
   return (
-    <section id="formacao" className="relative py-16 sm:py-24 bg-warm-cream overflow-hidden">
+    <section id="formacao" ref={ref} className="relative py-16 sm:py-24 bg-warm-cream studio-edge-light studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-14 items-end mb-10">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-9">
           <div className="lg:col-span-7">
             <div className="reveal-init">
               <span className="eyebrow text-terracotta">Por dentro da formação</span>
@@ -70,15 +74,7 @@ export default function Gallery() {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
                 style={{ objectPosition: image.position }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/58 via-rich-black/5 to-transparent pointer-events-none" />
-              <div className="absolute left-5 right-5 bottom-5">
-                <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
-                  {image.title}
-                </div>
-                <p className="mt-1 max-w-md text-sm sm:text-base text-warm-cream font-semibold leading-tight">
-                  {image.caption}
-                </p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/18 via-transparent to-transparent pointer-events-none" />
             </article>
           ))}
         </div>

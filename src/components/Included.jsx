@@ -5,11 +5,11 @@ export default function Included() {
   const ref = useReveal({ delayBetween: 60 })
 
   return (
-    <section id="incluido" ref={ref} className="relative py-20 sm:py-28 bg-deep-brown text-warm-cream">
+    <section id="incluido" ref={ref} className="relative py-16 sm:py-24 bg-deep-brown text-warm-cream studio-edge-dark studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-end mb-14">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end mb-10 sm:mb-12">
           <div className="lg:col-span-7">
             <div className="reveal-init">
               <span className="eyebrow text-terracotta-soft">O que está incluído</span>

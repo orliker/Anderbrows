@@ -136,23 +136,27 @@ export const TRANSFORMATION = {
 
 export const TESTIMONIALS = [
   {
-    name: 'Formanda Anderbrows',
-    text: 'Saí da formação com uma técnica organizada e com muito mais segurança para atender.',
+    name: 'Inês Hortinha',
+    meta: 'Google · há 4 meses',
+    text: 'Toda a equipa é incrível. Formadores incríveis, não escondem o que sabem e ensinam exatamente tudo o que fazem num procedimento. O Uander é dos melhores profissionais de Portugal e está sempre presente, antes, durante e após as formações.',
     stars: 5,
   },
   {
-    name: 'Formanda Anderbrows',
-    text: 'A parte prática fez toda a diferença. Dá para perceber cada detalhe do método.',
+    name: 'Joana Raimundo',
+    meta: 'Google · há 3 meses',
+    text: 'Experiência incrível na Anderbrows. O conhecimento do Uander é extraordinário, com uma base científica sólida e uma abordagem extremamente segura e consciente. Saí muito mais confiante e motivada. Recomendo sem qualquer dúvida.',
     stars: 5,
   },
   {
-    name: 'Formanda Anderbrows',
-    text: 'O acompanhamento é próximo, direto e profissional. Recomendo para quem quer começar bem.',
+    name: 'joana vieira',
+    meta: 'Google · há 7 meses',
+    text: 'Classifico o Uander e a sua equipa como os melhores em Portugal. A minha experiência como formanda e como cliente não podia ser melhor: super profissionais, honestos e gente boa mesmo. Super recomendo os serviços e as formações.',
     stars: 5,
   },
   {
-    name: 'Formanda Anderbrows',
-    text: 'Gostei especialmente da clareza no mapeamento e da forma como corrigimos assimetrias.',
+    name: 'Sofia Martins',
+    meta: 'Google · há 2 anos',
+    text: 'Tive formação de designer de sobrancelhas + henna e foi incrível. Adorei a recepção, a motivação, o profissionalismo e o quanto transmitem conhecimento. São uma equipa maravilhosa. Espero voltar.',
     stars: 5,
   },
 ]

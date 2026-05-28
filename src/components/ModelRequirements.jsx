@@ -22,7 +22,7 @@ export default function ModelRequirements() {
   const ref = useReveal({ delayBetween: 100 })
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 bg-off-white">
+    <section ref={ref} className="relative py-16 sm:py-24 bg-warm-beige studio-edge-light studio-hairline overflow-hidden">
       <div className="container-x">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-5">

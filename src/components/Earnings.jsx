@@ -37,9 +37,9 @@ export default function Earnings() {
   const ref = useReveal({ delayBetween: 140 })
 
   return (
-    <section ref={ref} className="relative py-20 sm:py-28 bg-warm-cream overflow-hidden">
+    <section ref={ref} className="relative py-16 sm:py-24 bg-warm-cream studio-edge-light studio-hairline overflow-hidden">
       <div className="container-x relative">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="reveal-init">
             <span className="eyebrow center justify-center text-terracotta">Visão de futuro</span>
           </div>

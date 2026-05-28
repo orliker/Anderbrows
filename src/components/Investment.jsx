@@ -5,7 +5,7 @@ export default function Investment() {
   const ref = useReveal({ delayBetween: 120 })
 
   return (
-    <section id="investimento" ref={ref} className="relative py-20 sm:py-28 bg-chocolate text-warm-cream overflow-hidden">
+    <section id="investimento" ref={ref} className="relative py-16 sm:py-24 bg-chocolate text-warm-cream studio-edge-dark studio-hairline overflow-hidden">
       <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
 
       <div className="container-x relative">
@@ -21,7 +21,7 @@ export default function Investment() {
           </p>
         </div>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-7 max-w-5xl mx-auto">
+        <div className="mt-10 sm:mt-12 grid md:grid-cols-2 gap-7 max-w-5xl mx-auto">
           <PlanCard
             title="Formação"
             price={COURSE.priceBase}
