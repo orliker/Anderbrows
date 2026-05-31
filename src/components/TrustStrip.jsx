@@ -11,9 +11,9 @@ function TrustNumber({ item }) {
   const ref = useCountUp(item.value, { duration: 1400 })
 
   return (
-    <article className="reveal-init bg-off-white/95 border border-terracotta/20 rounded-[22px] px-5 py-5 shadow-card backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/40">
-      <div className="flex items-baseline gap-1">
-        <span ref={ref} className="font-display text-4xl sm:text-5xl leading-none text-rich-black">
+    <article className="reveal-init stat-card bg-off-white/95 border border-terracotta/20 rounded-[22px] px-5 py-5 shadow-card backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/40">
+      <div className="number-accent flex items-baseline gap-1 pb-3">
+        <span ref={ref} className="count-number font-display text-4xl sm:text-5xl leading-none text-rich-black">
           0
         </span>
         <span className="font-display text-2xl text-terracotta">{item.suffix}</span>

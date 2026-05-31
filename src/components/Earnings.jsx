@@ -15,9 +15,9 @@ function EarningsCard({ amount, procedures, accent }) {
         Cenário com {procedures} atendimentos / dia · 21 dias úteis
       </div>
 
-      <div className="mt-7 flex items-baseline gap-3">
+      <div className={`number-accent mt-7 flex items-baseline gap-3 pb-4 ${accent ? 'number-accent-dark' : ''}`}>
         <span className={`font-display text-7xl sm:text-8xl leading-none ${accent ? 'gold-text' : 'text-rich-black'}`}>
-          <span ref={ref}>0</span>
+          <span ref={ref} className="count-number">0</span>
         </span>
         <span className={`font-display text-4xl ${accent ? 'text-terracotta-soft' : 'text-terracotta/60'}`}>€</span>
       </div>

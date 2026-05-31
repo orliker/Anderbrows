@@ -64,7 +64,7 @@ export default function Gallery() {
           {images.map((image) => (
             <article
               key={image.src}
-              className={`reveal-init relative rounded-[24px] overflow-hidden bg-rich-black border border-white/60 shadow-card group ${image.className}`}
+              className={`reveal-init image-glint relative rounded-[24px] overflow-hidden bg-rich-black border border-white/60 shadow-card group ${image.className}`}
             >
               <img
                 src={image.src}

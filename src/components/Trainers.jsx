@@ -27,7 +27,7 @@ export default function Trainers() {
                   : 'bg-white border border-warm-beige text-deep-brown shadow-lg'
               } hover:shadow-2xl hover:-translate-y-2`}
             >
-              <div className="relative w-full h-[340px] sm:h-[420px] overflow-hidden bg-warm-beige">
+              <div className="image-glint relative w-full h-[340px] sm:h-[420px] overflow-hidden bg-warm-beige">
                 <img
                   src={t.image}
                   alt={`Retrato de ${t.name}`}

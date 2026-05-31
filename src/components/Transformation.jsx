@@ -26,7 +26,7 @@ export default function Transformation() {
         <div className="mt-10 sm:mt-12 grid md:grid-cols-3 gap-6 lg:gap-8">
           {TRANSFORMATION.items.map((item) => (
             <article key={item.image} className="reveal-init group">
-              <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden bg-rich-black shadow-card border border-white/10">
+              <div className="image-glint relative aspect-[4/5] rounded-[24px] overflow-hidden bg-rich-black shadow-card border border-white/10">
                 <img
                   src={item.image}
                   alt={`${item.label} - resultado técnico de sobrancelhas`}

@@ -60,11 +60,29 @@ export function useCountUp(target, { duration = 1200 } = {}) {
 
     let raf = 0
     let played = false
+    const wrapper = el.closest('.number-accent')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const formattedTarget = target.toLocaleString('pt-PT')
+
+    const finish = () => {
+      el.textContent = formattedTarget
+      el.classList.remove('is-counting')
+      el.classList.add('is-counted')
+      wrapper?.classList.remove('is-counting')
+      wrapper?.classList.add('is-counted')
+    }
+
+    if (reducedMotion) {
+      finish()
+      return
+    }
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting || played) return
         played = true
+        el.classList.add('is-counting')
+        wrapper?.classList.add('is-counting')
 
         const start = performance.now()
         const step = (now) => {
@@ -74,6 +92,8 @@ export function useCountUp(target, { duration = 1200 } = {}) {
 
           if (progress < 1) {
             raf = requestAnimationFrame(step)
+          } else {
+            finish()
           }
         }
 
