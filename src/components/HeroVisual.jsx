@@ -3,10 +3,10 @@ export default function HeroVisual() {
     <div className="relative w-full max-w-[350px] sm:max-w-[440px] lg:max-w-[520px] xl:max-w-[560px] mx-auto">
       <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden shadow-2xl bg-rich-black border border-white/40">
         <img
-          src="/images/anderbrows/practice-mapping.jpg"
-          alt="Prática de mapeamento de sobrancelhas com paquímetro"
+          src="/images/anderbrows/student-certificates.jpg"
+          alt="Turma Anderbrows com certificados da formação"
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: 'center 47%' }}
+          style={{ objectPosition: 'center 42%' }}
           decoding="async"
           fetchPriority="high"
         />
@@ -15,10 +15,10 @@ export default function HeroVisual() {
 
       <div className="absolute -bottom-8 -left-5 sm:-left-8 lg:-bottom-10 lg:-left-10 w-36 sm:w-44 lg:w-52 aspect-[4/5] rounded-[20px] overflow-hidden border-4 border-warm-beige shadow-xl bg-white">
         <img
-          src="/images/anderbrows/kit-editorial.jpg"
-          alt="Kit e materiais da formação Anderbrows"
+          src="/images/anderbrows/uander.jpeg"
+          alt="Uander Machado, formador principal da Anderbrows"
           className="w-full h-full object-cover"
-          style={{ objectPosition: '42% 45%' }}
+          style={{ objectPosition: 'center 36%' }}
           loading="eager"
           decoding="async"
         />

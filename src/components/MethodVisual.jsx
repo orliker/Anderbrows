@@ -19,20 +19,20 @@ export default function MethodVisual() {
             <div className="reveal-init relative max-w-[660px] mx-auto lg:mx-0">
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-[28px] overflow-hidden shadow-2xl border border-terracotta/20 bg-rich-black">
                 <img
-                  src="/images/anderbrows/brow-design-closeup-02.png"
-                  alt="Close-up de sobrancelha com acabamento natural"
+                  src="/images/anderbrows/joana.jpeg"
+                  alt="Formadora Anderbrows durante a formação"
                   loading="lazy"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: 'center 46%' }}
+                  style={{ objectPosition: 'center 34%' }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-rich-black/45 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute left-6 bottom-6 right-6">
                   <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
-                    Resultado · Método Anderbrows
+                    Método Anderbrows
                   </div>
                   <div className="mt-2 font-display text-3xl sm:text-4xl text-white leading-none">
-                    Naturalidade com estrutura
+                    Técnica ensinada de perto
                   </div>
                 </div>
               </div>

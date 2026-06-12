@@ -36,8 +36,8 @@ export default function FinalCTA() {
           <div className="reveal-init lg:col-span-5">
             <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-terracotta/20 shadow-2xl bg-rich-black">
               <img
-                src="/images/anderbrows/kit-editorial.jpg"
-                alt="Kit profissional Anderbrows"
+                src="/images/anderbrows/student-certificates.jpg"
+                alt="Turma Anderbrows com certificados"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover"
@@ -46,10 +46,10 @@ export default function FinalCTA() {
               <div className="absolute inset-0 bg-gradient-to-t from-rich-black/75 via-transparent to-transparent pointer-events-none" />
               <div className="absolute left-6 right-6 bottom-6">
                 <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
-                  Opção com kit
+                  Turma próxima
                 </div>
                 <p className="mt-2 font-display text-3xl text-white leading-tight">
-                  Material para iniciar com estrutura.
+                  Uma formação próxima, prática e acompanhada.
                 </p>
               </div>
             </div>
