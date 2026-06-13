@@ -1,26 +1,20 @@
 import { useReveal } from '../hooks/useReveal.js'
 
-const images = [
+const moments = [
   {
-    src: '/images/anderbrows/student-certificates.jpg',
-    title: 'Foto da formação 👩‍🎓',
-    caption: 'Turma, certificados e aquele orgulho bom de terminar uma etapa.',
-    className: 'lg:col-span-7 min-h-[360px] sm:min-h-[520px]',
-    position: 'center 42%',
+    n: '01',
+    title: 'Turma reduzida',
+    text: 'Grupo pequeno para manter acompanhamento próximo, correção individual e ritmo real de prática.',
   },
   {
-    src: '/images/anderbrows/uander.jpeg',
-    title: 'Formador principal',
-    caption: 'Acompanhamento técnico direto durante a formação.',
-    className: 'lg:col-span-5 min-h-[360px] sm:min-h-[520px]',
-    position: 'center 36%',
+    n: '02',
+    title: 'Mão na massa',
+    text: 'A técnica é treinada em modelo real, com orientação direta durante cada etapa do atendimento.',
   },
   {
-    src: '/images/anderbrows/joana.jpeg',
-    title: 'Formadora Anderbrows',
-    caption: 'Presença, cuidado e detalhe no acompanhamento das alunas.',
-    className: 'lg:col-span-12 min-h-[320px] sm:min-h-[430px]',
-    position: 'center 34%',
+    n: '03',
+    title: 'Certificado no fim',
+    text: 'A formação fecha com certificado de participação e uma base clara para continuar a evoluir.',
   },
 ]
 
@@ -46,21 +40,29 @@ export default function Gallery() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-4 sm:gap-5">
-          {images.map((image) => (
+        <div className="grid lg:grid-cols-3 gap-4 sm:gap-5">
+          {moments.map((moment) => (
             <article
-              key={image.src}
-              className={`reveal-init image-glint relative rounded-[24px] overflow-hidden bg-rich-black border border-white/60 shadow-card group ${image.className}`}
+              key={moment.n}
+              className="reveal-init relative min-h-[260px] rounded-[24px] overflow-hidden border border-terracotta/18 bg-off-white/85 p-7 sm:p-8 shadow-card transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/35 hover:bg-white"
             >
-              <img
-                src={image.src}
-                alt={image.title}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.035]"
-                style={{ objectPosition: image.position }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/18 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-noise opacity-20 pointer-events-none" />
+              <div className="relative flex h-full flex-col justify-between">
+                <div className="flex items-center justify-between gap-5">
+                  <span className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
+                    Momento {moment.n}
+                  </span>
+                  <span className="h-px flex-1 bg-gradient-to-r from-terracotta/35 to-transparent" />
+                </div>
+                <div className="pt-14">
+                  <h3 className="font-display text-3xl sm:text-4xl leading-none text-rich-black">
+                    {moment.title}
+                  </h3>
+                  <p className="mt-5 text-sm sm:text-base text-deep-brown/75 leading-relaxed font-medium">
+                    {moment.text}
+                  </p>
+                </div>
+              </div>
             </article>
           ))}
         </div>

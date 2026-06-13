@@ -19,22 +19,14 @@ export default function Audience() {
             </h2>
           </div>
           <div className="reveal-init hidden lg:block lg:col-span-4">
-            <div className="relative h-44 rounded-[24px] overflow-hidden border border-terracotta/25 shadow-2xl bg-rich-black">
-              <img
-                src="/images/anderbrows/student-certificates.jpg"
-                alt="Formandas Anderbrows com certificados"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: 'center 45%' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/76 via-rich-black/10 to-transparent" />
-              <div className="absolute left-5 right-5 bottom-5">
+            <div className="relative h-44 rounded-[24px] overflow-hidden border border-terracotta/25 shadow-2xl bg-rich-black p-6">
+              <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
+              <div className="relative flex h-full flex-col justify-between">
                 <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
                   Turmas próximas
                 </div>
-                <p className="mt-1 text-sm text-warm-cream font-semibold leading-snug">
-                  Acompanhamento real, conversa direta e certificado no fim.
+                <p className="font-display text-3xl text-warm-cream leading-none">
+                  prática, conversa direta e certificado no fim.
                 </p>
               </div>
             </div>

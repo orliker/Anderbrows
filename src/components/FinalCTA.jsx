@@ -34,23 +34,29 @@ export default function FinalCTA() {
           </div>
 
           <div className="reveal-init lg:col-span-5">
-            <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-terracotta/20 shadow-2xl bg-rich-black">
-              <img
-                src="/images/anderbrows/student-certificates.jpg"
-                alt="Turma Anderbrows com certificados"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: 'center 42%' }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-rich-black/75 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute left-6 right-6 bottom-6">
+            <div className="relative rounded-[28px] overflow-hidden border border-terracotta/20 shadow-2xl bg-rich-black p-7 sm:p-9 text-warm-cream">
+              <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
+              <div className="relative">
                 <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
-                  Turma próxima
+                  Próxima turma
                 </div>
-                <p className="mt-2 font-display text-3xl text-white leading-tight">
-                  Uma formação próxima, prática e acompanhada.
-                </p>
+                <div className="mt-5 font-display text-5xl leading-none text-white">
+                  {COURSE.date}
+                </div>
+                <div className="mt-2 text-sm uppercase tracking-widest2 text-warm-beige/55 font-bold">
+                  {COURSE.city}
+                </div>
+
+                <div className="my-8 h-px bg-gradient-to-r from-terracotta/50 via-warm-beige/20 to-transparent" />
+
+                <ul className="space-y-4 text-sm font-semibold text-warm-beige/80">
+                  {['Vagas limitadas', 'Prática acompanhada', 'Certificado incluído'].map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="h-2 w-2 rounded-full bg-terracotta-soft" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>

@@ -13,15 +13,13 @@ export default function HeroVisual() {
         <div className="absolute inset-0 bg-gradient-to-t from-rich-black/18 via-transparent to-rich-black/5 pointer-events-none" />
       </div>
 
-      <div className="absolute -bottom-8 -left-5 sm:-left-8 lg:-bottom-10 lg:-left-10 w-36 sm:w-44 lg:w-52 aspect-[4/5] rounded-[20px] overflow-hidden border-4 border-warm-beige shadow-xl bg-white">
-        <img
-          src="/images/anderbrows/uander.jpeg"
-          alt="Uander Machado, formador principal da Anderbrows"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 36%' }}
-          loading="eager"
-          decoding="async"
-        />
+      <div className="absolute -bottom-8 -left-5 sm:-left-8 lg:-bottom-10 lg:-left-10 w-40 sm:w-48 lg:w-56 rounded-[20px] border-4 border-warm-beige bg-off-white px-5 py-4 shadow-xl">
+        <div className="text-[10px] uppercase tracking-widest2 text-terracotta font-bold">
+          Turma limitada
+        </div>
+        <p className="mt-2 font-display text-2xl leading-none text-rich-black">
+          acompanhamento próximo
+        </p>
       </div>
 
       <div className="absolute -top-5 -right-4 sm:-right-7 lg:-right-10 bg-off-white border border-terracotta/20 shadow-xl rounded-[18px] px-4 py-3">

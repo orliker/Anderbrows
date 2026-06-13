@@ -17,22 +17,27 @@ export default function MethodVisual() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div className="lg:col-span-7 order-2 lg:order-1">
             <div className="reveal-init relative max-w-[660px] mx-auto lg:mx-0">
-              <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-[28px] overflow-hidden shadow-2xl border border-terracotta/20 bg-rich-black">
-                <img
-                  src="/images/anderbrows/joana.jpeg"
-                  alt="Formadora Anderbrows durante a formação"
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{ objectPosition: 'center 34%' }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-rich-black/45 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute left-6 bottom-6 right-6">
+              <div className="relative rounded-[28px] overflow-hidden shadow-2xl border border-terracotta/20 bg-rich-black p-7 sm:p-10">
+                <div className="absolute inset-0 bg-noise opacity-25 pointer-events-none" />
+                <div className="relative">
                   <div className="text-[10px] uppercase tracking-widest2 text-terracotta-soft font-bold">
                     Método Anderbrows
                   </div>
-                  <div className="mt-2 font-display text-3xl sm:text-4xl text-white leading-none">
+                  <div className="mt-4 font-display text-4xl sm:text-5xl text-white leading-none">
                     Técnica ensinada de perto
+                  </div>
+
+                  <div className="mt-10 grid gap-4">
+                    {['Leitura facial', 'Marcação técnica', 'Aplicação guiada', 'Finalização limpa'].map((step, index) => (
+                      <div key={step} className="flex items-center gap-5 rounded-[18px] border border-white/10 bg-white/[0.04] px-5 py-4">
+                        <span className="font-display text-2xl text-terracotta-soft">
+                          0{index + 1}
+                        </span>
+                        <span className="text-sm sm:text-base text-warm-cream font-semibold">
+                          {step}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
